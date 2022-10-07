@@ -50,7 +50,7 @@ struct ContentView: View {
                         
                         VStack(spacing:10){
                             
-                            NavigationLink(destination:welcomView(),label: {
+                            NavigationLink(destination:dashBoardView(),label: {
                                 Text("Ingresar")
                                     .foregroundColor(.black)
                                     .frame(width:130,height:30)
