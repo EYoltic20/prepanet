@@ -8,9 +8,42 @@
 import SwiftUI
 
 struct dashBoardView: View {
+    var cursos = ["Ingles", "Aleman"]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationBarBackButtonHidden(true)
+        NavigationView{
+            VStack(alignment:.leading,spacing : 35){
+                Text("Cursos Activos")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .padding()
+                
+                //            MARK : -Cursos activos
+                HStack{
+                    Spacer()
+                    ForEach(cursos.indices , id : \.self){ curso in
+                        cursoView(curso: cursos[curso])
+                            .frame(maxWidth:150,maxHeight: 150)
+                    }
+                    Spacer()
+                    
+                }
+                Text("Cursos Pasados")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .padding()
+                
+                //            MARK : -Cursos activos
+                HStack{
+                    Spacer()
+                    ForEach(cursos.indices , id : \.self){ curso in
+                        cursoView(curso: cursos[curso])
+                            .frame(maxWidth:150,maxHeight: 150)
+                    }
+                    Spacer()
+                    
+                }
+            }
+        }
     }
 }
 
