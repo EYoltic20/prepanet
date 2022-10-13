@@ -13,7 +13,21 @@ struct cursoView: View {
         RoundedRectangle(cornerRadius: 20)
             .fill(.blue)
             .overlay{
-                Text("\(curso)")
+                VStack{
+                    Capsule()
+                        .fill(.gray)
+                        .opacity(0.6)
+                        .overlay{
+                            Text("59%")
+                                .font(.caption)
+                        }
+                        .offset(x:30,y:-30)
+                        .shadow(color: .black.opacity(0.2), radius: 10, x: 3, y: 3)
+                        .frame(width:50,height:30)
+                        
+                    Text("\(curso)")
+                }
+                
             }
     }
 }

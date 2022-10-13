@@ -13,6 +13,7 @@
 		2E3EECFD28E7879300A0E298 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3EECFC28E7879300A0E298 /* Preview Assets.xcassets */; };
 		2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */; };
 		2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF32AEB28F67A200044C8DC /* cursoView.swift */; };
+		2EFD2C1728F7854A005BB3E9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EFD2C1628F7854A005BB3E9 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2E3EECFC28E7879300A0E298 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashBoardView.swift; sourceTree = "<group>"; };
 		2EF32AEB28F67A200044C8DC /* cursoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoView.swift; sourceTree = "<group>"; };
+		2EFD2C1628F7854A005BB3E9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				2ED2BE3D28F0B54F0035E9F1 /* vistas */,
 				2E3EECF528E7879200A0E298 /* PrepaNetApp.swift */,
 				2E3EECF928E7879300A0E298 /* Assets.xcassets */,
+				2EFD2C1628F7854A005BB3E9 /* Launch Screen.storyboard */,
 				2E3EECFB28E7879300A0E298 /* Preview Content */,
 			);
 			path = PrepaNet;
@@ -139,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EFD2C1728F7854A005BB3E9 /* Launch Screen.storyboard in Resources */,
 				2E3EECFD28E7879300A0E298 /* Preview Assets.xcassets in Resources */,
 				2E3EECFA28E7879300A0E298 /* Assets.xcassets in Resources */,
 			);

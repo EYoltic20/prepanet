@@ -14,8 +14,14 @@ struct ContentView: View {
     @State  var isActiveNormal = false
     var body: some View {
         NavigationView{
-            VStack{
+            VStack(alignment:.center){
+                Image("LOGO")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:200,height: 200,alignment: .center)
+                    .padding()
                 VStack(alignment:.leading,spacing:20){
+  
                     //            MARK: - inputes de loggin
                     Text("Matricula")
                         .font(.title3)
@@ -36,10 +42,12 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                         }
                     }       .overlay(Divider().foregroundColor(.black),alignment: .bottom)
-                }.padding()
-                    .frame(width:300,height: 700)
-                    .padding(.bottom,60)
+                }
+                    .frame(width:300,height: .infinity)
+                    .padding()
+                    .padding(.bottom,10)
                 //        Mark: -Bottones
+                Spacer()
                 VStack(alignment:.center){
                     NavigationLink(destination:dashBoardView(),label: {
                         Text("Ingresar")
@@ -52,7 +60,7 @@ struct ContentView: View {
                                     .fill(.white)
                                     .frame(width:200,height: 50)
                             }
-                            .padding(.bottom,100)
+                            
                             
                     })
                     
@@ -63,10 +71,10 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)
+                        
+                }.padding(.top,200)
                 }
-            
-                }
-                
+
                 
             }
     }
