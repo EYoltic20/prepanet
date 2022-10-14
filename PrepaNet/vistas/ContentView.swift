@@ -46,10 +46,10 @@ struct ContentView: View {
                     .frame(width:300,height: .infinity)
                     .padding()
                     .padding(.bottom,10)
-                //        Mark: -Bottones
+                //        MARK: -Bottones
                 Spacer()
                 VStack(alignment:.center){
-                    NavigationLink(destination:dashBoardView(),label: {
+                    NavigationLink(destination:AutentificacionView(),label: {
                         Text("Ingresar")
                             .font(.title2)
                             .foregroundColor(.black)
@@ -77,7 +77,15 @@ struct ContentView: View {
 
                 
             }
+//        .onAppear{
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//              withAnimation() {
+//                  Launch Screen()
+//              }
+//            }
+//        }
     }
+        
     
 }
 

@@ -11,9 +11,10 @@
 		2E3EECF828E7879200A0E298 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EECF728E7879200A0E298 /* ContentView.swift */; };
 		2E3EECFA28E7879300A0E298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3EECF928E7879300A0E298 /* Assets.xcassets */; };
 		2E3EECFD28E7879300A0E298 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3EECFC28E7879300A0E298 /* Preview Assets.xcassets */; };
+		2E58F7C228F9FB2700874F4D /* AutentificacionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58F7C128F9FB2700874F4D /* AutentificacionView.swift */; };
 		2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */; };
+		2EEBBAF528F8D22900D9D701 /* ClasesModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */; };
 		2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF32AEB28F67A200044C8DC /* cursoView.swift */; };
-		2EFD2C1728F7854A005BB3E9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EFD2C1628F7854A005BB3E9 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +23,10 @@
 		2E3EECF728E7879200A0E298 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2E3EECF928E7879300A0E298 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E3EECFC28E7879300A0E298 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2E58F7C128F9FB2700874F4D /* AutentificacionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutentificacionView.swift; sourceTree = "<group>"; };
 		2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashBoardView.swift; sourceTree = "<group>"; };
+		2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasesModelo.swift; sourceTree = "<group>"; };
 		2EF32AEB28F67A200044C8DC /* cursoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoView.swift; sourceTree = "<group>"; };
-		2EFD2C1628F7854A005BB3E9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +59,11 @@
 		2E3EECF428E7879200A0E298 /* PrepaNet */ = {
 			isa = PBXGroup;
 			children = (
-				2ED2BE3D28F0B54F0035E9F1 /* vistas */,
+				2EEBBAF328F8D1E200D9D701 /* Modelo */,
 				2E3EECF528E7879200A0E298 /* PrepaNetApp.swift */,
 				2E3EECF928E7879300A0E298 /* Assets.xcassets */,
-				2EFD2C1628F7854A005BB3E9 /* Launch Screen.storyboard */,
 				2E3EECFB28E7879300A0E298 /* Preview Content */,
+				2ED2BE3D28F0B54F0035E9F1 /* vistas */,
 			);
 			path = PrepaNet;
 			sourceTree = "<group>";
@@ -80,8 +82,17 @@
 				2E3EECF728E7879200A0E298 /* ContentView.swift */,
 				2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */,
 				2EF32AEB28F67A200044C8DC /* cursoView.swift */,
+				2E58F7C128F9FB2700874F4D /* AutentificacionView.swift */,
 			);
 			path = vistas;
+			sourceTree = "<group>";
+		};
+		2EEBBAF328F8D1E200D9D701 /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */,
+			);
+			path = Modelo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +153,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EFD2C1728F7854A005BB3E9 /* Launch Screen.storyboard in Resources */,
 				2E3EECFD28E7879300A0E298 /* Preview Assets.xcassets in Resources */,
 				2E3EECFA28E7879300A0E298 /* Assets.xcassets in Resources */,
 			);
@@ -156,7 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */,
+				2EEBBAF528F8D22900D9D701 /* ClasesModelo.swift in Sources */,
 				2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */,
+				2E58F7C228F9FB2700874F4D /* AutentificacionView.swift in Sources */,
 				2E3EECF828E7879200A0E298 /* ContentView.swift in Sources */,
 				2E3EECF628E7879200A0E298 /* PrepaNetApp.swift in Sources */,
 			);
