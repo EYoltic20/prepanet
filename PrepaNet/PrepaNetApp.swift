@@ -11,7 +11,7 @@ import SwiftUI
 struct PrepaNetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabViewCo()
         }
     }
 }

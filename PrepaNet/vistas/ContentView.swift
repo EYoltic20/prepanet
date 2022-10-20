@@ -43,7 +43,7 @@ struct ContentView: View {
                         }
                     }       .overlay(Divider().foregroundColor(.black),alignment: .bottom)
                 }
-                    .frame(width:300,height: .infinity)
+                    .frame(width:300,height: 100)
                     .padding()
                     .padding(.bottom,10)
                 //        MARK: -Bottones

@@ -26,7 +26,7 @@ struct AutentificacionView: View {
                                     .frame(width:200,height: 50)
                                     .overlay(Divider().foregroundColor(.black),alignment: .bottom)
                                     .padding()
-                                NavigationLink( destination: dashBoardView(), label: {
+                                NavigationLink( destination: TabViewCo(), label: {
                                            RoundedRectangle(cornerRadius: 20)
                                                .frame(width:100,height: 50)
                                                .overlay{
