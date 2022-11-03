@@ -20,6 +20,17 @@ struct TabViewCo: View {
                     Image(systemName: "house")
                     
                 }
+            AlertasView()
+                .tag("alerta")
+                .tabItem{
+                    Image(systemName: "bell.fill")
+                }
+            calendarioView()
+                .tag("Calendar")
+                .tabItem {
+                    Image(systemName: "calendar")
+                }
+            
         }.accentColor(.black)
         }
         .navigationBarHidden(true)

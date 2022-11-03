@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+SwiftUICalendar in Pods, no dependencies
+Pods-PrepaNet in Pods, depends on:
+SwiftUICalendar in Pods (explicit)

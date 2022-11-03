@@ -1,0 +1,46 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98db262f093e28c0cbc46f6131c50b12ed"
+    }
+  ],
+  "containerPath" : "/Users/emilioymartinez/Desktop/5_semestre/Integracion_Seguridad_software/PrepaNet/Pods/Pods.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/emilioymartinez/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/emilioymartinez/Library/Developer/Xcode/DerivedData/Pods-euinogutdtasspbhpugorwssgsez/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/emilioymartinez/Library/Developer/Xcode/DerivedData/Pods-euinogutdtasspbhpugorwssgsez/Index/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}

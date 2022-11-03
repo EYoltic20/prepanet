@@ -13,10 +13,14 @@
 		2E3EECFD28E7879300A0E298 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3EECFC28E7879300A0E298 /* Preview Assets.xcassets */; };
 		2E58F7C228F9FB2700874F4D /* AutentificacionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58F7C128F9FB2700874F4D /* AutentificacionView.swift */; };
 		2E76CE4A28FE1285001D7618 /* cursoDetalleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76CE4928FE1285001D7618 /* cursoDetalleView.swift */; };
+		2E97B095290318A100390FC9 /* AlertasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E97B094290318A100390FC9 /* AlertasView.swift */; };
+		2E97B09729031ADF00390FC9 /* calendarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E97B09629031ADF00390FC9 /* calendarioView.swift */; };
 		2EAC6F2528FA2E4200290DC9 /* TabViewCo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC6F2428FA2E4200290DC9 /* TabViewCo.swift */; };
+		2EACF0DD291307E300EE14BD /* InformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EACF0DC291307E200EE14BD /* InformationViewModel.swift */; };
 		2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */; };
 		2EEBBAF528F8D22900D9D701 /* ClasesModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */; };
 		2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF32AEB28F67A200044C8DC /* cursoView.swift */; };
+		308C2F0EAA48FD09F45C12E3 /* Pods_PrepaNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D701436343A669F8F3DF91 /* Pods_PrepaNet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +31,16 @@
 		2E3EECFC28E7879300A0E298 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E58F7C128F9FB2700874F4D /* AutentificacionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutentificacionView.swift; sourceTree = "<group>"; };
 		2E76CE4928FE1285001D7618 /* cursoDetalleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoDetalleView.swift; sourceTree = "<group>"; };
+		2E97B094290318A100390FC9 /* AlertasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertasView.swift; sourceTree = "<group>"; };
+		2E97B09629031ADF00390FC9 /* calendarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarioView.swift; sourceTree = "<group>"; };
 		2EAC6F2428FA2E4200290DC9 /* TabViewCo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewCo.swift; sourceTree = "<group>"; };
+		2EACF0DC291307E200EE14BD /* InformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModel.swift; sourceTree = "<group>"; };
 		2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashBoardView.swift; sourceTree = "<group>"; };
 		2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasesModelo.swift; sourceTree = "<group>"; };
 		2EF32AEB28F67A200044C8DC /* cursoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoView.swift; sourceTree = "<group>"; };
+		B182F9334DE0526328601879 /* Pods-PrepaNet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepaNet.release.xcconfig"; path = "Target Support Files/Pods-PrepaNet/Pods-PrepaNet.release.xcconfig"; sourceTree = "<group>"; };
+		D3D701436343A669F8F3DF91 /* Pods_PrepaNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrepaNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE0B323EE6081C5D055BA52 /* Pods-PrepaNet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepaNet.debug.xcconfig"; path = "Target Support Files/Pods-PrepaNet/Pods-PrepaNet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				308C2F0EAA48FD09F45C12E3 /* Pods_PrepaNet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +60,8 @@
 			children = (
 				2E3EECF428E7879200A0E298 /* PrepaNet */,
 				2E3EECF328E7879200A0E298 /* Products */,
+				8740912E7A54BA4EDA720894 /* Pods */,
+				639573324765AA834503338E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +78,7 @@
 			children = (
 				2EEBBAF328F8D1E200D9D701 /* Modelo */,
 				2E3EECF528E7879200A0E298 /* PrepaNetApp.swift */,
+				2EACF0DB291307C800EE14BD /* VistaModelo */,
 				2E3EECF928E7879300A0E298 /* Assets.xcassets */,
 				2E3EECFB28E7879300A0E298 /* Preview Content */,
 				2ED2BE3D28F0B54F0035E9F1 /* vistas */,
@@ -80,6 +94,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2EACF0DB291307C800EE14BD /* VistaModelo */ = {
+			isa = PBXGroup;
+			children = (
+				2EACF0DC291307E200EE14BD /* InformationViewModel.swift */,
+			);
+			path = VistaModelo;
+			sourceTree = "<group>";
+		};
 		2ED2BE3D28F0B54F0035E9F1 /* vistas */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +109,10 @@
 				2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */,
 				2E76CE4928FE1285001D7618 /* cursoDetalleView.swift */,
 				2EAC6F2428FA2E4200290DC9 /* TabViewCo.swift */,
+				2E97B09629031ADF00390FC9 /* calendarioView.swift */,
 				2EF32AEB28F67A200044C8DC /* cursoView.swift */,
 				2E58F7C128F9FB2700874F4D /* AutentificacionView.swift */,
+				2E97B094290318A100390FC9 /* AlertasView.swift */,
 			);
 			path = vistas;
 			sourceTree = "<group>";
@@ -101,6 +125,23 @@
 			path = Modelo;
 			sourceTree = "<group>";
 		};
+		639573324765AA834503338E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3D701436343A669F8F3DF91 /* Pods_PrepaNet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8740912E7A54BA4EDA720894 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECE0B323EE6081C5D055BA52 /* Pods-PrepaNet.debug.xcconfig */,
+				B182F9334DE0526328601879 /* Pods-PrepaNet.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -108,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E3EED0028E7879300A0E298 /* Build configuration list for PBXNativeTarget "PrepaNet" */;
 			buildPhases = (
+				71FF069CF1E324A8A11B0F8E /* [CP] Check Pods Manifest.lock */,
 				2E3EECEE28E7879200A0E298 /* Sources */,
 				2E3EECEF28E7879200A0E298 /* Frameworks */,
 				2E3EECF028E7879200A0E298 /* Resources */,
+				35B050F7C9BFBFFABF0C3660 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,6 +209,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35B050F7C9BFBFFABF0C3660 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrepaNet/Pods-PrepaNet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrepaNet/Pods-PrepaNet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrepaNet/Pods-PrepaNet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71FF069CF1E324A8A11B0F8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PrepaNet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2E3EECEE28E7879200A0E298 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -173,12 +258,15 @@
 			files = (
 				2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */,
 				2EEBBAF528F8D22900D9D701 /* ClasesModelo.swift in Sources */,
+				2E97B09729031ADF00390FC9 /* calendarioView.swift in Sources */,
 				2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */,
 				2E76CE4A28FE1285001D7618 /* cursoDetalleView.swift in Sources */,
 				2E58F7C228F9FB2700874F4D /* AutentificacionView.swift in Sources */,
 				2EAC6F2528FA2E4200290DC9 /* TabViewCo.swift in Sources */,
 				2E3EECF828E7879200A0E298 /* ContentView.swift in Sources */,
 				2E3EECF628E7879200A0E298 /* PrepaNetApp.swift in Sources */,
+				2E97B095290318A100390FC9 /* AlertasView.swift in Sources */,
+				2EACF0DD291307E300EE14BD /* InformationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +389,7 @@
 		};
 		2E3EED0128E7879300A0E298 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECE0B323EE6081C5D055BA52 /* Pods-PrepaNet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,6 +419,7 @@
 		};
 		2E3EED0228E7879300A0E298 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B182F9334DE0526328601879 /* Pods-PrepaNet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

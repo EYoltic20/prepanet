@@ -9,6 +9,7 @@ import SwiftUI
 
 struct cursoDetalleView: View {
     var curso : ClasesModelo
+    var opciones = ["Dar de baja","Personas","Instructor"]
     var body: some View {
         VStack(alignment:.center){
             ScrollView{
@@ -19,8 +20,8 @@ struct cursoDetalleView: View {
                         .fontWeight(.bold)
                     Text("\(curso.descripcion)")
                         .font(.title2)
-                    Text("\(curso.periodo)")
-                        .font(.title3)
+                    Text("\(curso.periodoInicio)")
+                        .font(.title)
                         .fontWeight(.semibold)
                     Circle()
                         .fill(curso.calificacion > 70 ? .green : .red).opacity(0.7)
@@ -33,8 +34,20 @@ struct cursoDetalleView: View {
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
                         }
-                }.frame(maxWidth:300,maxHeight: .infinity)
+                    Text("Opciones").font(.title).fontWeight(.bold)
+                    List{
+                        ForEach(opciones.indices,id:\.self){opcion in
+                            Text(opciones[opcion])
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .padding()
+                        }
+                    }.frame(height:200)
+                        .listStyle(.plain)
+                        
+                }.frame(maxHeight: .infinity)
                     .padding()
+
             }
             
         }
@@ -44,6 +57,6 @@ struct cursoDetalleView: View {
 
 struct cursoDetalleView_Previews: PreviewProvider {
     static var previews: some View {
-        cursoDetalleView(curso:ClasesModelo(nombre: "", calificacion: 10, descripcion: "", dar_de_baja: true, estado: true, perdiodo: ""))
+        cursoDetalleView(curso:ClasesModelo(nombre: "", calificacion: 10, descripcion: "", dar_de_baja: true, estado: true, periodoInicio: "",periodoFinal: ""))
     }
 }
