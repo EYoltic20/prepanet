@@ -15,17 +15,23 @@ struct TabViewCo: View {
             
 //            MARK: -Dash board
             dashBoardView()
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
                 .tag("dash")
                 .tabItem{
                     Image(systemName: "house")
                     
                 }
             AlertasView()
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
                 .tag("alerta")
                 .tabItem{
                     Image(systemName: "bell.fill")
                 }
             calendarioView()
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
                 .tag("Calendar")
                 .tabItem {
                     Image(systemName: "calendar")
@@ -37,7 +43,7 @@ struct TabViewCo: View {
         .navigationBarBackButtonHidden(true)
     }
 }
-
+//
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         TabViewCo()

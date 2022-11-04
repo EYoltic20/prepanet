@@ -73,6 +73,7 @@ struct calendarioView: View {
                                     notaAdd = true
                                 }
                             rectangulo(geometry: geometry, color: Color.blue)
+                                .cornerRadius(30)
                             
                         }
                         else{
@@ -96,6 +97,7 @@ struct calendarioView: View {
                 agregar_nota().frame(maxWidth:reader.size.width,maxHeight:reader.size.height, alignment: .bottom)
                     .frame(maxHeight:.infinity,alignment: .bottom)
                     .offset(y:notaAdd ? 0 : 800)
+
             }
             
         }
@@ -105,22 +107,56 @@ struct calendarioView: View {
             
             print(infoview.informations)
         }
-        
         .padding()
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
-    
+//    MARK: -Agregar nueva nota
 @ViewBuilder
     func agregar_nota()-> some View{
     
-            VStack{
+        VStack(alignment:.center){
                 HStack{
-                    TextField("Escribe una tarea",text: $nota)
+                    Spacer()
+                Button{
+                    notaAdd = false
+                }label:{
+                    Image(systemName: "xmark.circle.fill")
+                        .resizable()
+                        .frame(width:30,height:30)
                 }
+                }
+                
+                
+                .frame(maxWidth:.infinity)
+                Spacer()
+                HStack{
+                    Spacer()
+                    TextField("Escribe una tarea",text: $nota)
+                        .frame(height:200)
+                        .overlay{
+                            VStack{
+                                
+                                Divider().frame(maxWidth:300,alignment: .bottom)
+                                    .padding(.top,20)
+                            }
+                        }
+                    Spacer()
+                    Button{
+                        
+                    }label: {
+                        Image(systemName: "plus")
+                    }
+                }
+                .frame(maxWidth:300)
+                .padding()
             }
+            .padding()
+            .frame(maxWidth:.infinity,maxHeight: 300,alignment: .center)
             .background{
-                Color.gray
+                Color.white
+                    .shadow(color: .black, radius: 10, x: 1, y: 10)
+                
             }
     }
 // MARK: -Generador de rectangulos
@@ -128,9 +164,9 @@ struct calendarioView: View {
 @ViewBuilder
     func rectangulo(geometry:GeometryProxy,color:Color)->some View{
         Rectangle().fill(.blue)
-            .frame(width: geometry.size.width-2, height: geometry.size.height-80,alignment: .center)
+            .frame(width: geometry.size.width, height: geometry.size.height/8,alignment: .center)
             .cornerRadius(10)
-            .padding(.leading,2)
+            
     }
     
 }
