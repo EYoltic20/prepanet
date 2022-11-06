@@ -35,15 +35,27 @@ struct cursoDetalleView: View {
                                 .font(.system(size: 50))
                         }
                     Text("Opciones").font(.title).fontWeight(.bold)
-                    List{
-                        ForEach(opciones.indices,id:\.self){opcion in
-                            Text(opciones[opcion])
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                                .padding()
-                        }
-                    }.frame(height:200)
-                        .listStyle(.plain)
+//                    MARK: -Boton por si se dio de baja el pana
+                    if curso.dar_de_baja || !curso.estado{
+                        
+                    }else{
+                        Button{
+                            curso.dar_de_baja = false
+                        }label: {
+                            Rectangle()
+                                .fill(.red)
+                                .frame(width:.infinity,height: 60)
+                                .cornerRadius(10)
+                                .overlay{
+                                    Text("Dar de baja la materia")
+                                        .foregroundColor(.white)
+                                        .fontWeight(.bold)
+                            }
+                        }.padding()
+                    }
+                    
+                    
+                }
                         
                 }.frame(maxHeight: .infinity)
                     .padding()
@@ -53,7 +65,7 @@ struct cursoDetalleView: View {
         }
     }
     
-}
+
 
 struct cursoDetalleView_Previews: PreviewProvider {
     static var previews: some View {

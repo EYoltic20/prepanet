@@ -32,7 +32,7 @@ struct dashBoardView: View {
                             .fontWeight(.heavy)
                             .font(.title)
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(.black)
+                            .fill(.green)
                             .frame(width:250,height:200)
                             .overlay{
                                 Text(getCurso())
@@ -57,9 +57,10 @@ struct dashBoardView: View {
                             LazyHGrid(rows:rowsGrid,spacing: 20){
                                 Spacer()
                                 ForEach(cursosInactivos.indices , id : \.self){ curso in
-                                    NavigationLink(destination:cursoDetalleView(curso: cursos[curso])){
+                                    NavigationLink(destination:cursoDetalleView(curso: cursosInactivos[curso])){
                                         
-                                        cursoView(curso: cursosInactivos[curso].nombre)
+                                        cursoView(curso: cursosInactivos[curso].nombre,colo:Color.black)
+                                   
                                             .frame(width:150,height: 150)
                                             .shadow(color: .black.opacity(0.3), radius: 10, x: 4, y: 3)
                                         //                                Capsula de calificacion
@@ -93,7 +94,7 @@ struct dashBoardView: View {
                     }.padding()
                     //                    MARK: -Curso faltantes
                     VStack(alignment:.leading , spacing: 35){
-                        Text("Cursos Pasados")
+                        Text("Cursos Faltantes")
                             .font(.title)
                             .fontWeight(.semibold)
                             .padding()
@@ -106,8 +107,9 @@ struct dashBoardView: View {
                                 ForEach(cursosInactivos.indices , id : \.self){ curso in
                                     NavigationLink(destination:cursoDetalleView(curso: cursos[curso])){
                                         
-                                        cursoView(curso: cursosInactivos[curso].nombre)
+                                        cursoView(curso: cursosInactivos[curso].nombre,colo:Color.blue)
                                             .frame(width:150,height: 150)
+                                            
                                             .shadow(color: .black.opacity(0.3), radius: 10, x: 4, y: 3)
                                         //                                Capsula de calificacion
                                             .overlay{
@@ -171,7 +173,7 @@ struct dashBoardView: View {
                                 .scaledToFit()
                                 .frame(width:130,height: 30)
                         }
-                        //                Perfil
+                        //                MARK: -Perfil
                         ToolbarItem(placement: .navigationBarLeading){
                             Button{
                                 print("Hola")
@@ -183,7 +185,7 @@ struct dashBoardView: View {
                                     .frame(width:30,height: 30)
                             }
                         }
-                        //                Menu
+                        //              MARK: -Menu
                         ToolbarItem(placement:.navigationBarTrailing){
                             Button{
                                 print("Hola")

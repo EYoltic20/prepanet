@@ -14,6 +14,8 @@ struct calendarioView: View {
     
     //    var informations = [YearMonthDay: [(String, Color)]]()
     @State var nota = ""
+    @State var alerta = false
+    @State var fecha : YearMonthDay  = YearMonthDay.current
     @State var notaAdd = false
     @ObservedObject var infoview  = informationView(cursos: [ClasesModelo(nombre: "Liderazgo Positivo y Transformación Personal ", calificacion: 100, descripcion: "Transformar su vida y aumentar tu riqueza y capital psicológico, con el fin de tener mayor éxito estudiantil, lograr una mayor influencia en su contexto y cambiar el entorno. ", dar_de_baja: false, estado: true,periodoInicio:"10 11 2022",periodoFinal: "20 11 2022")
                                                             ])
@@ -63,6 +65,10 @@ struct calendarioView: View {
                                 .foregroundColor(.white)
                                 .background(Color.red.opacity(0.95))
                                 .cornerRadius(14)
+                                .onTapGesture {
+                                    notaAdd = true
+                                    fecha = date
+                                }
                             //                    MARK: -Mostrar fecha de cursos
                         }else if(infoview.informations.contains(date)){
                             
@@ -71,6 +77,7 @@ struct calendarioView: View {
                                 .opacity(date.isFocusYearMonth == true ? 1 : 0.4)
                                 .onTapGesture {
                                     notaAdd = true
+                                    fecha = date
                                 }
                             rectangulo(geometry: geometry, color: Color.blue)
                                 .cornerRadius(30)
@@ -81,8 +88,18 @@ struct calendarioView: View {
                                 .font(.system(size: 15, weight: .bold, design: .default))
                             
                                 .opacity(date.isFocusYearMonth == true ? 1 : 0.4)
+                                .onTapGesture {
+                                    notaAdd = true
+                                    fecha = date
+                                }
                         }
-                        
+//                        MARK: -Mostrar las tareas
+                        if let info = infoview.guardarInfo[date]{
+                            ForEach(info.indices,id:\.self){ tareas in
+                                rectangulo(geometry: geometry, color: Color.green)
+                                    .cornerRadius(30)
+                            }
+                        }
                         
                         //                        MARK: -Mostrar todos los cursos
                         
@@ -94,10 +111,12 @@ struct calendarioView: View {
                 .padding(.all,20)
             
             ZStack{
-                agregar_nota().frame(maxWidth:reader.size.width,maxHeight:reader.size.height, alignment: .bottom)
-                    .frame(maxHeight:.infinity,alignment: .bottom)
-                    .offset(y:notaAdd ? 0 : 800)
-
+                agregar_nota(date:fecha)
+                    .frame(maxWidth:.infinity,maxHeight:reader.size.height/4, alignment: .bottom)
+                    
+                    .offset(y:notaAdd ? 500 : 2000)
+                    .animation(.easeIn(duration: 0.4))
+                
             }
             
         }
@@ -110,14 +129,19 @@ struct calendarioView: View {
         .padding()
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .alert(isPresented: $alerta){
+            Alert(title: Text("Demasiadas Tares"), message: Text("Ya son demasiadas tareas"), dismissButton:.default(Text("Ok")))
+        }
     }
-//    MARK: -Agregar nueva nota
-@ViewBuilder
-    func agregar_nota()-> some View{
-    
-        VStack(alignment:.center){
-                HStack{
-                    Spacer()
+        
+    //    MARK: -Agregar nueva nota
+    @ViewBuilder
+    func agregar_nota(date:YearMonthDay)-> some View{
+//        MARK: -Nota circulo
+        VStack(alignment:.center,spacing: 0){
+            
+            HStack{
+                Spacer()
                 Button{
                     notaAdd = false
                 }label:{
@@ -125,50 +149,81 @@ struct calendarioView: View {
                         .resizable()
                         .frame(width:30,height:30)
                 }
-                }
-                
-                
-                .frame(maxWidth:.infinity)
-                Spacer()
-                HStack{
-                    Spacer()
-                    TextField("Escribe una tarea",text: $nota)
-                        .frame(height:200)
-                        .overlay{
-                            VStack{
+            }
+            .frame(maxWidth:.infinity)
+            .padding()
+            
+//            MARK: -Mostrar tareas
+            
+            VStack(alignment:.leading){
+                ScrollView{
+                if let info = infoview.guardarInfo[date]{
+                    ForEach(info.indices,id:\.self){ tareas in
+                        Rectangle()
+                            .fill(.green)
+                            .cornerRadius(9)
+                            .frame(width:.infinity,height: 30)
+                            .overlay{
+                                Text(info[tareas]).foregroundColor(.white)
+                                    .fontWeight(.semibold)
                                 
-                                Divider().frame(maxWidth:300,alignment: .bottom)
-                                    .padding(.top,20)
                             }
-                        }
-                    Spacer()
-                    Button{
-                        
-                    }label: {
-                        Image(systemName: "plus")
                     }
                 }
-                .frame(maxWidth:300)
+                }
+            }.frame(width: .infinity, height: 230)
                 .padding()
+//                .padding(.top,100)
+            
+//            Mark: -Ingresar valores
+            HStack{
+                Spacer()
+                TextField("Escribe una tarea",text: $nota)
+                    .frame(height:200)
+                    .overlay{
+                        VStack{
+
+                            Divider().frame(maxWidth:100,alignment: .bottom)
+                                .padding(.top,20)
+                        }
+                    }
+                Spacer()
+                Button{
+                    
+                    cuantasTareasHay(date: date)
+                    print("into_guarda")
+                }label: {
+                    Image(systemName: "plus")
+                }
             }
+            .frame(maxWidth:300)
             .padding()
-            .frame(maxWidth:.infinity,maxHeight: 300,alignment: .center)
-            .background{
-                Color.white
-                    .shadow(color: .black, radius: 10, x: 1, y: 10)
-                
-            }
+//            .padding(.bottom,50)
+        }.padding(.top,50)
+//        .frame(maxWidth:.infinity,maxHeight: 400,alignment: .center)
+        .background{
+            Color.white
+                .shadow(color: .black.opacity(0.4), radius: 10, x: 15, y: 10)
+            
+        }
     }
-// MARK: -Generador de rectangulos
     
-@ViewBuilder
+    // MARK: -Generador de rectangulos
+    
+    @ViewBuilder
     func rectangulo(geometry:GeometryProxy,color:Color)->some View{
-        Rectangle().fill(.blue)
+        Rectangle().fill(color)
             .frame(width: geometry.size.width, height: geometry.size.height/8,alignment: .center)
             .cornerRadius(10)
-            
+        
     }
-    
+    func cuantasTareasHay(date:YearMonthDay){
+        if ((infoview.guardarInfo[date]?.count ?? 0)>3 ){
+            alerta = true
+        }else{
+            infoview.insertar_text(texto: nota, fecha: date)
+        }
+    }
 }
 
 struct calendarioView_Previews: PreviewProvider {

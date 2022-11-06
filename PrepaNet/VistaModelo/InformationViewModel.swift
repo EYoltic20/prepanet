@@ -17,7 +17,7 @@ extension YearMonthDay: Hashable {
 }
 class informationView:ObservableObject{
     @Published var informations:[YearMonthDay] = []
-    @Published var guardarInfo : [YearMonthDay:String] =  [:]
+    @Published var guardarInfo : [YearMonthDay:[String]] =  [:]
     
     var cursos : [ClasesModelo]
     var split_curso_I : [String] = []
@@ -35,7 +35,18 @@ class informationView:ObservableObject{
         self.cursos = cursos
     }
     func insertar_text(texto:String,fecha:YearMonthDay){
-        guardarInfo[fecha]?.append(contentsOf: texto)
+        if guardarInfo[fecha] == nil{
+            guardarInfo[fecha] = []
+            guardarInfo[fecha]?.append(texto)
+        }else{
+            if guardarInfo[fecha]!.count>3{
+                print("Ya hay Muchas Tareas")
+            }
+            guardarInfo[fecha]?.append(texto)
+            print(guardarInfo)
+        }
+        
+   
     }
     func get_values(){
         for curso in cursos {
