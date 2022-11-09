@@ -23,18 +23,23 @@ struct cursoDetalleView: View {
                     Text("\(curso.periodoInicio)")
                         .font(.title)
                         .fontWeight(.semibold)
-                    Circle()
-                        .fill(curso.calificacion > 70 ? .green : .red).opacity(0.7)
-                        .opacity(0.3)
-                        .shadow(color: .black, radius: 10, x: 10, y: 10)
-                        .frame(width:150,height:150)
-                        .overlay{
-                            Text("\(curso.calificacion)%")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .font(.system(size: 50))
-                        }
-                    Text("Opciones").font(.title).fontWeight(.bold)
+//                    Circle()
+//                        .fill(curso.calificacion > 70 ? .green : .red).opacity(0.7)
+//                        .opacity(0.3)
+//                        .shadow(color: .black, radius: 10, x: 10, y: 10)
+//                        .frame(width:150,height:150)
+//                        .overlay{
+//                            Text("\(curso.calificacion)%")
+//                                .font(.title)
+//                                .fontWeight(.bold)
+//                                .font(.system(size: 50))
+//                        }
+//                    MARK: -Implementacion del circulo
+                    Construyendo_circulo(incremento: curso.calificacion)
+                        .frame(width: 200  , height: 200, alignment: .center)
+                    
+                    
+        
 //                    MARK: -Boton por si se dio de baja el pana
                     if curso.dar_de_baja || !curso.estado{
                         
@@ -44,7 +49,8 @@ struct cursoDetalleView: View {
                         }label: {
                             Rectangle()
                                 .fill(.red)
-                                .frame(width:.infinity,height: 60)
+                                .frame(width:.infinity
+                                       ,height: 60)
                                 .cornerRadius(10)
                                 .overlay{
                                     Text("Dar de baja la materia")
@@ -63,6 +69,29 @@ struct cursoDetalleView: View {
             }
             
         }
+    @ViewBuilder
+    func Construyendo_circulo(incremento:Int)->some View{
+        let percentage = CGFloat(incremento) / CGFloat(100)
+        ZStack{
+            Circle()
+                .stroke(lineWidth: 30)
+                .opacity(0.2)
+                .foregroundColor(incremento>70 ? .green : .red)
+            Circle()
+                .trim(from: 0, to: percentage)
+                .stroke(style: StrokeStyle(lineWidth:30,lineCap: .round,lineJoin: .round))
+                .foregroundColor(incremento>70 ? .green : .red)
+                .rotationEffect(Angle(degrees: 270))
+                
+                .animation(.linear)
+                
+            Text("\(incremento)%")
+                .foregroundColor(incremento>70 ? .green : .red)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
+        }
+    }
     }
     
 

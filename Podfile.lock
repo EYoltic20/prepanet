@@ -1,16 +1,20 @@
 PODS:
+  - lottie-ios (3.5.0)
   - SwiftUICalendar (0.1.12)
 
 DEPENDENCIES:
+  - lottie-ios
   - SwiftUICalendar
 
 SPEC REPOS:
   trunk:
+    - lottie-ios
     - SwiftUICalendar
 
 SPEC CHECKSUMS:
+  lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   SwiftUICalendar: 83eb88083294fd0828fc26f68facbe0c5438b3a8
 
-PODFILE CHECKSUM: b9f96b6ba9448f420ba3430937408df8f2686c15
+PODFILE CHECKSUM: a64f30cf95efcd3f2ab2163f16207009027192fa
 
 COCOAPODS: 1.11.2

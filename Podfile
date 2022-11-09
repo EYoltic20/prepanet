@@ -7,4 +7,5 @@ target 'PrepaNet' do
 
   # Pods for PrepaNet
   pod 'SwiftUICalendar'
+  pod 'lottie-ios'
 end

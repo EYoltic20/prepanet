@@ -9,10 +9,10 @@ import SwiftUI
 
 struct dashBoardView: View {
     @State private var cursos = [ClasesModelo(nombre: "Liderazgo Positivo y Transformación Personal ", calificacion: 100, descripcion: "Transformar su vida y aumentar tu riqueza y capital psicológico, con el fin de tener mayor éxito estudiantil, lograr una mayor influencia en su contexto y cambiar el entorno. ", dar_de_baja: false, estado: true,periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                         ClasesModelo(nombre: "Mis habilidades y motivaciones ", calificacion: 0, descripcion: "Reconocimiento de habilidades, destrezas, fortalezas. FODA. GATO ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                         ClasesModelo(nombre: "Mis emociones ", calificacion: 40, descripcion: "¿Qué son las emociones? Emociones, biología de la salud. Importancia de las emociones. Identificación de emociones. Tipos de emociones. Inteligencia emocional. ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                         ClasesModelo(nombre: "Mis relaciones ", calificacion: 70, descripcion: "Desarrollo de empatía. (Competencias emocionales e interpersonales). Tipos de relaciones. Aspectos importantes en las relaciones. Límites personales. Mis relaciones interpersonales. Mapa de mis relaciones. ", dar_de_baja: false, estado: false,periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                         ClasesModelo(nombre: "Mis áreas de oportunidad ", calificacion: 80, descripcion: "Metamomento. Expresión de emociones. Posiciones ante la comunicación de emociones. La inteligencia emocional y la comunicación asertiva. Regulación de emociones. Desarrollo de resolución de conflictos (El plano inteligente-emocional) ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022")
+                                 ClasesModelo(nombre: "Mis habilidades y motivaciones ", calificacion: 0, descripcion: "Reconocimiento de habilidades, destrezas, fortalezas. FODA. GATO ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
+                                 ClasesModelo(nombre: "Mis emociones ", calificacion: 40, descripcion: "¿Qué son las emociones? Emociones, biología de la salud. Importancia de las emociones. Identificación de emociones. Tipos de emociones. Inteligencia emocional. ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
+                                 ClasesModelo(nombre: "Mis relaciones ", calificacion: 70, descripcion: "Desarrollo de empatía. (Competencias emocionales e interpersonales). Tipos de relaciones. Aspectos importantes en las relaciones. Límites personales. Mis relaciones interpersonales. Mapa de mis relaciones. ", dar_de_baja: false, estado: false,periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
+                                 ClasesModelo(nombre: "Mis áreas de oportunidad ", calificacion: 80, descripcion: "Metamomento. Expresión de emociones. Posiciones ante la comunicación de emociones. La inteligencia emocional y la comunicación asertiva. Regulación de emociones. Desarrollo de resolución de conflictos (El plano inteligente-emocional) ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022")
     ]
     @State var cursosInactivos = [ClasesModelo]()
     let rowsGrid = [GridItem(.flexible(minimum:3))]
@@ -34,13 +34,15 @@ struct dashBoardView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.green)
                             .frame(width:250,height:200)
+                            .shadow(color:.black.opacity(0.4), radius: 10, x: 15, y: 15)
                             .overlay{
                                 Text(getCurso())
-                                    .font(.title)
-                                    .fontWeight(.bold)
                                     .foregroundColor(.white)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                                
                             }
-                            .shadow(color:.black.opacity(0.4), radius: 10, x: 15, y: 15)
                             .onTapGesture {
                                 isDetalleViewActive.toggle()
                             }
@@ -60,7 +62,7 @@ struct dashBoardView: View {
                                     NavigationLink(destination:cursoDetalleView(curso: cursosInactivos[curso])){
                                         
                                         cursoView(curso: cursosInactivos[curso].nombre,colo:Color.black)
-                                   
+                                        
                                             .frame(width:150,height: 150)
                                             .shadow(color: .black.opacity(0.3), radius: 10, x: 4, y: 3)
                                         //                                Capsula de calificacion
@@ -105,11 +107,11 @@ struct dashBoardView: View {
                             LazyHGrid(rows:rowsGrid,spacing: 20){
                                 Spacer()
                                 ForEach(cursosInactivos.indices , id : \.self){ curso in
-                                    NavigationLink(destination:cursoDetalleView(curso: cursos[curso])){
+                                    NavigationLink(destination:cursoDetalleView(curso: cursosInactivos[curso])){
                                         
                                         cursoView(curso: cursosInactivos[curso].nombre,colo:Color.blue)
                                             .frame(width:150,height: 150)
-                                            
+                                        
                                             .shadow(color: .black.opacity(0.3), radius: 10, x: 4, y: 3)
                                         //                                Capsula de calificacion
                                             .overlay{
@@ -154,9 +156,13 @@ struct dashBoardView: View {
                             .fill(.gray)
                             .opacity(0.2)
                             .overlay{
-                                Image(systemName: "calendar")
-                                    .resizable()
-                                    .frame(width:20,height: 20)
+                                NavigationLink(destination: InscripcionesView()){
+                                    Image(systemName: "calendar")
+                                        .resizable()
+                                        .foregroundColor(.black)
+                                        .frame(width:20,height: 20)
+                                }
+                                
                             }
                             .frame(width:50,height: 50,alignment: .center)
                         
@@ -199,22 +205,25 @@ struct dashBoardView: View {
                         }
                     }
             }
+                        .background{
+                            animacion(url: "https://assets2.lottiefiles.com/packages/lf20_xumdt6xk.json")
+                                .frame(maxWidth:.infinity,maxHeight: .infinity)
+                                .ignoresSafeArea()
+                                
+                        }
             .onAppear{
                 cursosInactivos = getCursosInactivos()
             }
         }
+        
         .navigationBarTitle("")
         .navigationBarHidden(true)
-        //        .navigationTitle{
         
-        //        }
-        
-     
     }
     
     
     
-//    MARK: -Obtener el curso activo
+    //    MARK: -Obtener el curso activo
     func getCurso()->String{
         for curso in cursos{
             if(curso.estado){
@@ -223,7 +232,7 @@ struct dashBoardView: View {
         }
         return "error"
     }
-//    MARK: -Obtener curso inactivo
+    //    MARK: -Obtener curso inactivo
     func getCursosInactivos() ->[ClasesModelo]{
         var t=[ClasesModelo]()
         for curso in cursos {

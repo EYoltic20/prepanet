@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AlertasView: View {
-    var alertas = ["Inscripcion disponible","Periodo dado  de baja"]
+    @State var alertas = ["Inscripcion disponible","Periodo dado  de baja"]
     var body: some View {
+        NavigationView{
         VStack{
             List{
                 ForEach(alertas.indices,id:\.self){alerta in
@@ -19,13 +20,18 @@ struct AlertasView: View {
                         Text("\(alertas[alerta])")
                         
                     }
-                    .frame(width: .infinity, height: 50)
+                    .frame(maxWidth: .infinity, maxHeight: 50)
                     
+                }
+                .onDelete{indexSet in
+                    alertas.remove(atOffsets: indexSet)
                 }
             }.listStyle(.inset)
         }
+        .padding()
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        }
     }
 }
 

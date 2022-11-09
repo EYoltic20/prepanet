@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2547932919998C00EA725A /* InscripcionesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2547922919998C00EA725A /* InscripcionesView.swift */; };
 		2E3EECF628E7879200A0E298 /* PrepaNetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EECF528E7879200A0E298 /* PrepaNetApp.swift */; };
 		2E3EECF828E7879200A0E298 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EECF728E7879200A0E298 /* ContentView.swift */; };
 		2E3EECFA28E7879300A0E298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3EECF928E7879300A0E298 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 		2E97B09729031ADF00390FC9 /* calendarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E97B09629031ADF00390FC9 /* calendarioView.swift */; };
 		2EAC6F2528FA2E4200290DC9 /* TabViewCo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC6F2428FA2E4200290DC9 /* TabViewCo.swift */; };
 		2EACF0DD291307E300EE14BD /* InformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EACF0DC291307E200EE14BD /* InformationViewModel.swift */; };
+		2EC21299291C4C6100B20771 /* animacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC21298291C4C6100B20771 /* animacion.swift */; };
 		2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */; };
 		2EEBBAF528F8D22900D9D701 /* ClasesModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */; };
 		2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF32AEB28F67A200044C8DC /* cursoView.swift */; };
@@ -24,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E2547922919998C00EA725A /* InscripcionesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscripcionesView.swift; sourceTree = "<group>"; };
 		2E3EECF228E7879200A0E298 /* PrepaNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepaNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3EECF528E7879200A0E298 /* PrepaNetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaNetApp.swift; sourceTree = "<group>"; };
 		2E3EECF728E7879200A0E298 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		2E97B09629031ADF00390FC9 /* calendarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarioView.swift; sourceTree = "<group>"; };
 		2EAC6F2428FA2E4200290DC9 /* TabViewCo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewCo.swift; sourceTree = "<group>"; };
 		2EACF0DC291307E200EE14BD /* InformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModel.swift; sourceTree = "<group>"; };
+		2EC21298291C4C6100B20771 /* animacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animacion.swift; sourceTree = "<group>"; };
 		2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashBoardView.swift; sourceTree = "<group>"; };
 		2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasesModelo.swift; sourceTree = "<group>"; };
 		2EF32AEB28F67A200044C8DC /* cursoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoView.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				2EF32AEB28F67A200044C8DC /* cursoView.swift */,
 				2E58F7C128F9FB2700874F4D /* AutentificacionView.swift */,
 				2E97B094290318A100390FC9 /* AlertasView.swift */,
+				2E2547922919998C00EA725A /* InscripcionesView.swift */,
+				2EC21298291C4C6100B20771 /* animacion.swift */,
 			);
 			path = vistas;
 			sourceTree = "<group>";
@@ -257,11 +263,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */,
+				2EC21299291C4C6100B20771 /* animacion.swift in Sources */,
 				2EEBBAF528F8D22900D9D701 /* ClasesModelo.swift in Sources */,
 				2E97B09729031ADF00390FC9 /* calendarioView.swift in Sources */,
 				2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */,
 				2E76CE4A28FE1285001D7618 /* cursoDetalleView.swift in Sources */,
 				2E58F7C228F9FB2700874F4D /* AutentificacionView.swift in Sources */,
+				2E2547932919998C00EA725A /* InscripcionesView.swift in Sources */,
 				2EAC6F2528FA2E4200290DC9 /* TabViewCo.swift in Sources */,
 				2E3EECF828E7879200A0E298 /* ContentView.swift in Sources */,
 				2E3EECF628E7879200A0E298 /* PrepaNetApp.swift in Sources */,
