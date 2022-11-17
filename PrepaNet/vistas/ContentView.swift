@@ -6,22 +6,31 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct ContentView: View {
     @State var matricula=""
     @State var password = ""
     @State var isHidden = true
     @State  var isActiveNormal = false
+    @State var estado = 0
+    @State var alerta = false
+    
     var body: some View {
         NavigationView{
+            
             VStack(alignment:.center){
+                NavigationLink(destination:AutentificacionView(),isActive: $isActiveNormal){
+                    EmptyView()
+                }
+                .hidden()
                 Image("LOGO")
                     .resizable()
                     .scaledToFit()
                     .frame(width:200,height: 200,alignment: .center)
                     .padding()
                 VStack(alignment:.leading,spacing:20){
-  
+                    
                     //            MARK: - inputes de loggin
                     Text("Matricula")
                         .font(.title3)
@@ -43,13 +52,19 @@ struct ContentView: View {
                         }
                     }       .overlay(Divider().foregroundColor(.black),alignment: .bottom)
                 }
-                    .frame(width:300,height: 100)
-                    .padding()
-                    .padding(.bottom,10)
+                .frame(width:300,height: 100)
+                .padding()
+                .padding(.bottom,10)
                 //        MARK: -Bottones
                 Spacer()
                 VStack(alignment:.center){
-                    NavigationLink(destination:AutentificacionView(),label: {
+                    
+                    
+                    Button{
+                        //                       estado =  conexion.login(email: matricula, password: password)
+                        //                        conexion.login(email: matricula, password: password)
+                        login(email: matricula, password: password)
+                    }label: {
                         Text("Ingresar")
                             .font(.title2)
                             .foregroundColor(.black)
@@ -60,33 +75,56 @@ struct ContentView: View {
                                     .fill(.white)
                                     .frame(width:200,height: 50)
                             }
-                            
-                            
-                    })
+                    }
                     
-                }
-                .frame(maxWidth:.infinity,maxHeight: .infinity)
-                .background{
-                    Image("imagenUno")
-                        .resizable()
-                        .scaledToFill()
-                        .edgesIgnoringSafeArea(.all)
+                }.padding()
+                //                MARK: -FUGA A VERTIFICAION
+                
+                
+                    .frame(maxWidth:.infinity,maxHeight: .infinity)
+                    .background{
+                        Image("imagenUno")
+                            .resizable()
+                            .scaledToFill()
+                            .edgesIgnoringSafeArea(.all)
                         
-                }.padding(.top,200)
-                }
-
+                    }.padding(.top,200)
+                
+            }.alert(isPresented: $alerta){
+                Alert(title: Text("Usuario No Identificado"), message: Text("La contraseña o el usuario son incorrectas"), dismissButton:.default(Text("Ok")))
+            }
+            
+            
+        }
+        
+    }
+    func login(email:String,password:String){
+        let params = [
+            "email":"\(email)",
+            "password":"\(password)"
+        ]
+        //        var array : [String:String]?
+        
+            
+            
+            AF.request("https://prepnet.uc.r.appspot.com/api/auth/generate-token",method:.post,parameters:params,encoding:URLEncoding.httpBody).responseJSON{response in
+                switch response.result{
+                
+                case .success(let value):
+                    print(value)
+                    isActiveNormal.toggle()
+                    return
+                case .failure(let error):
+                    print(error)
+                    alerta.toggle()
+                    return
+                    
+                    
                 
             }
-//        .onAppear{
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//              withAnimation() {
-//                  Launch Screen()
-//              }
-//            }
-//        }
+            
+        }
     }
-        
-    
 }
 
 

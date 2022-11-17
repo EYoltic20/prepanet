@@ -206,7 +206,7 @@ struct dashBoardView: View {
                     }
             }
                         .background{
-                            animacion(url: "https://assets2.lottiefiles.com/packages/lf20_xumdt6xk.json")
+                            animacion(url: "https://assets10.lottiefiles.com/packages/lf20_nwfrjcrb.json")
                                 .frame(maxWidth:.infinity,maxHeight: .infinity)
                                 .ignoresSafeArea()
                                 

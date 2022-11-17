@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (5.4.0)
   - lottie-ios (3.5.0)
   - SwiftUICalendar (0.1.12)
 
 DEPENDENCIES:
+  - Alamofire
   - lottie-ios
   - SwiftUICalendar
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - lottie-ios
     - SwiftUICalendar
 
 SPEC CHECKSUMS:
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   SwiftUICalendar: 83eb88083294fd0828fc26f68facbe0c5438b3a8
 
-PODFILE CHECKSUM: a64f30cf95efcd3f2ab2163f16207009027192fa
+PODFILE CHECKSUM: 0f7c78c1c02033970c37489b9f03e9e614147d38
 
 COCOAPODS: 1.11.2
