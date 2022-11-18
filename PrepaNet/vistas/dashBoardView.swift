@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct dashBoardView: View {
-    @State private var cursos = [ClasesModelo(nombre: "Liderazgo Positivo y Transformación Personal ", calificacion: 100, descripcion: "Transformar su vida y aumentar tu riqueza y capital psicológico, con el fin de tener mayor éxito estudiantil, lograr una mayor influencia en su contexto y cambiar el entorno. ", dar_de_baja: false, estado: true,periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                                 ClasesModelo(nombre: "Mis habilidades y motivaciones ", calificacion: 0, descripcion: "Reconocimiento de habilidades, destrezas, fortalezas. FODA. GATO ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                                 ClasesModelo(nombre: "Mis emociones ", calificacion: 40, descripcion: "¿Qué son las emociones? Emociones, biología de la salud. Importancia de las emociones. Identificación de emociones. Tipos de emociones. Inteligencia emocional. ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                                 ClasesModelo(nombre: "Mis relaciones ", calificacion: 70, descripcion: "Desarrollo de empatía. (Competencias emocionales e interpersonales). Tipos de relaciones. Aspectos importantes en las relaciones. Límites personales. Mis relaciones interpersonales. Mapa de mis relaciones. ", dar_de_baja: false, estado: false,periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022"),
-                                 ClasesModelo(nombre: "Mis áreas de oportunidad ", calificacion: 80, descripcion: "Metamomento. Expresión de emociones. Posiciones ante la comunicación de emociones. La inteligencia emocional y la comunicación asertiva. Regulación de emociones. Desarrollo de resolución de conflictos (El plano inteligente-emocional) ", dar_de_baja: false, estado: false, periodoInicio:" 10 11 2022",periodoFinal: "20 11 2022")
-    ]
-    @State var cursosInactivos = [ClasesModelo]()
+    @ObservedObject var cursos  =  ClasesModelo()
+    
+    @State var cursosInactivos = [ModelClases]()
     let rowsGrid = [GridItem(.flexible(minimum:3))]
     @State var isDetalleViewActive = false
     @State var otroCursos = false
+    @State var cursoActual  = ""
     var body: some View {
         NavigationView{
             ScrollView{
@@ -25,7 +22,7 @@ struct dashBoardView: View {
                     //                MARK: -curso activo
                     VStack(alignment:.center){
                         ZStack{
-                            NavigationLink(destination:cursoDetalleView(curso: cursos[0]),isActive: $isDetalleViewActive,label: {EmptyView()})
+                            NavigationLink(destination:cursoDetalleView(curso: getCurso() ?? ModelClases(id: 0, nombre: "xx", orden: 1, description: "aa", duracion: 1, approved: true, status: "")),isActive: $isDetalleViewActive,label: {EmptyView()})
                         }
                         Text("Curso Actual")
                             .foregroundColor(.black)
@@ -36,7 +33,7 @@ struct dashBoardView: View {
                             .frame(width:250,height:200)
                             .shadow(color:.black.opacity(0.4), radius: 10, x: 15, y: 15)
                             .overlay{
-                                Text(getCurso())
+                                Text(getCursoNombre())
                                     .foregroundColor(.white)
                                     .fontWeight(.bold)
                                     .foregroundColor(.black)
@@ -68,11 +65,11 @@ struct dashBoardView: View {
                                         //                                Capsula de calificacion
                                             .overlay{
                                                 Capsule()
-                                                    .fill(cursosInactivos[curso].calificacion < 70 ? .red : .green)
+                                                    .fill(cursosInactivos[curso].id < 70 ? .red : .green)
                                                 
                                                     .opacity(0.6)
                                                     .overlay{
-                                                        Text("\(cursosInactivos[curso].calificacion)%")
+                                                        Text("\(cursosInactivos[curso].id)%")
                                                             .font(.caption)
                                                             .fontWeight(.bold)
                                                             .foregroundColor(.white)
@@ -116,11 +113,11 @@ struct dashBoardView: View {
                                         //                                Capsula de calificacion
                                             .overlay{
                                                 Capsule()
-                                                    .fill(cursosInactivos[curso].calificacion < 70 ? .red : .green)
+                                                    .fill(cursosInactivos[curso].id < 70 ? .red : .green)
                                                 
                                                     .opacity(0.6)
                                                     .overlay{
-                                                        Text("\(cursosInactivos[curso].calificacion)%")
+                                                        Text("\(cursosInactivos[curso].id)%")
                                                             .font(.caption)
                                                             .fontWeight(.bold)
                                                             .foregroundColor(.white)
@@ -205,13 +202,15 @@ struct dashBoardView: View {
                         }
                     }
             }
-                        .background{
-                            animacion(url: "https://assets10.lottiefiles.com/packages/lf20_nwfrjcrb.json")
-                                .frame(maxWidth:.infinity,maxHeight: .infinity)
-                                .ignoresSafeArea()
-                                
-                        }
+            .background{
+                animacion(url: "https://assets10.lottiefiles.com/packages/lf20_nwfrjcrb.json")
+                    .frame(maxWidth:.infinity,maxHeight: .infinity)
+                    .ignoresSafeArea()
+                
+            }
             .onAppear{
+                cursos.loadData(Url: "https://prepnet.uc.r.appspot.com/api/alumnos/historial-cursos/")
+//                print(cursos.result)
                 cursosInactivos = getCursosInactivos()
             }
         }
@@ -224,20 +223,28 @@ struct dashBoardView: View {
     
     
     //    MARK: -Obtener el curso activo
-    func getCurso()->String{
-        for curso in cursos{
-            if(curso.estado){
+    func getCursoNombre()->String{
+        for curso in cursos.result{
+            if(curso.status == "Cursando"){
                 return curso.nombre
             }
         }
         return "error"
     }
+    func getCurso()->ModelClases?{
+        for curso in cursos.result{
+            if(curso.status == "Cursando"){
+                return curso
+            }
+        }
+        return nil
+    }
     //    MARK: -Obtener curso inactivo
-    func getCursosInactivos() ->[ClasesModelo]{
-        var t=[ClasesModelo]()
-        for curso in cursos {
-            if curso.estado == false{
-                t.append(curso)
+    func getCursosInactivos() ->[ModelClases]{
+        var t=[ModelClases]()
+        for curso in cursos.result {
+            if curso.status == "Sin Cursar"{
+                t.append(ModelClases(id: curso.id, nombre: curso.nombre, orden: curso.orden, description: curso.description, duracion: curso.duracion, approved: curso.approved, status: curso.status))
             }
         }
         return t

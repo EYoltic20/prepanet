@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct cursoDetalleView: View {
-    var curso : ClasesModelo
+    var curso : ModelClases
     var opciones = ["Dar de baja","Personas","Instructor"]
     var body: some View {
         VStack(alignment:.center){
@@ -18,9 +18,9 @@ struct cursoDetalleView: View {
                     Text("\(curso.nombre)")
                         .font(.title)
                         .fontWeight(.bold)
-                    Text("\(curso.descripcion)")
+                    Text("\(curso.description)")
                         .font(.title2)
-                    Text("\(curso.periodoInicio)")
+                    Text("\(curso.duracion)")
                         .font(.title)
                         .fontWeight(.semibold)
 //                    Circle()
@@ -35,30 +35,30 @@ struct cursoDetalleView: View {
 //                                .font(.system(size: 50))
 //                        }
 //                    MARK: -Implementacion del circulo
-                    Construyendo_circulo(incremento: curso.calificacion)
+                    Construyendo_circulo(incremento: curso.id)
                         .frame(width: 200  , height: 200, alignment: .center)
                     
                     
         
 //                    MARK: -Boton por si se dio de baja el pana
-                    if curso.dar_de_baja || !curso.estado{
-                        
-                    }else{
-                        Button{
-                            curso.dar_de_baja = false
-                        }label: {
-                            Rectangle()
-                                .fill(.red)
-                                .frame(width:.infinity
-                                       ,height: 60)
-                                .cornerRadius(10)
-                                .overlay{
-                                    Text("Dar de baja la materia")
-                                        .foregroundColor(.white)
-                                        .fontWeight(.bold)
-                            }
-                        }.padding()
-                    }
+//                    if curso.dar_de_baja || !curso.estado{
+//
+//                    }else{
+//                        Button{
+//                            curso.dar_de_baja = false
+//                        }label: {
+//                            Rectangle()
+//                                .fill(.red)
+//                                .frame(width:.infinity
+//                                       ,height: 60)
+//                                .cornerRadius(10)
+//                                .overlay{
+//                                    Text("Dar de baja la materia")
+//                                        .foregroundColor(.white)
+//                                        .fontWeight(.bold)
+//                            }
+//                        }.padding()
+//                    }
                     
                     
                 }
@@ -96,8 +96,8 @@ struct cursoDetalleView: View {
     
 
 
-struct cursoDetalleView_Previews: PreviewProvider {
-    static var previews: some View {
-        cursoDetalleView(curso:ClasesModelo(nombre: "", calificacion: 10, descripcion: "", dar_de_baja: true, estado: true, periodoInicio: "",periodoFinal: ""))
-    }
-}
+//struct cursoDetalleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        cursoDetalleView()
+//    }
+//}

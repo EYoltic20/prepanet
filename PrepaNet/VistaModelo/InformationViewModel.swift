@@ -19,21 +19,21 @@ class informationView:ObservableObject{
     @Published var informations:[YearMonthDay] = []
     @Published var guardarInfo : [YearMonthDay:[String]] =  [:]
     
-    var cursos : [ClasesModelo]
-    var split_curso_I : [String] = []
-    var split_curso_F : [String] = []
-    init(cursos:[ClasesModelo]){
-        self.cursos = cursos
-        print(cursos[0].periodoFinal)
+//    var cursos : [ClasesModelo]
+//    var split_curso_I : [String] = []
+//    var split_curso_F : [String] = []
+    init(){
+//        self.cursos = cursos
+//        print(cursos[0].periodoFinal)
         print(YearMonthDay.current)
 
         
 //        MARK: -Acomodando las fechas
        
     }
-    func recover(cursos:[ClasesModelo]){
-        self.cursos = cursos
-    }
+//    func recover(cursos:[ClasesModelo]){
+//        self.cursos = cursos
+//    }
     func insertar_text(texto:String,fecha:YearMonthDay){
         if guardarInfo[fecha] == nil{
             guardarInfo[fecha] = []
@@ -48,25 +48,25 @@ class informationView:ObservableObject{
         
    
     }
-    func get_values(){
-        for curso in cursos {
-            let fecha_Inicio=String(curso.periodoInicio)
-            let fecha_Final = String(curso.periodoFinal)
-            
-            split_curso_I = fecha_Inicio.split(separator:" ").map { String($0) }
-            split_curso_F = fecha_Final.split(separator:" ").map { String($0) }
-            let diferencias = Int(split_curso_I[0])!-Int(split_curso_F[0])!
-            for i in 0...abs(diferencias-1){
-                let date = YearMonthDay(
-                    year:Int(split_curso_I[2])!,
-                    month: Int(split_curso_I[1])!,
-                    day:(Int(split_curso_I[0])!+i)
-                )
-                informations.append(date)
-                
-            }
-        }
-    }
+//    func get_values(){
+//        for curso in cursos {
+//            let fecha_Inicio=String(curso.periodoInicio)
+//            let fecha_Final = String(curso.periodoFinal)
+//            
+//            split_curso_I = fecha_Inicio.split(separator:" ").map { String($0) }
+//            split_curso_F = fecha_Final.split(separator:" ").map { String($0) }
+//            let diferencias = Int(split_curso_I[0])!-Int(split_curso_F[0])!
+//            for i in 0...abs(diferencias-1){
+//                let date = YearMonthDay(
+//                    year:Int(split_curso_I[2])!,
+//                    month: Int(split_curso_I[1])!,
+//                    day:(Int(split_curso_I[0])!+i)
+//                )
+//                informations.append(date)
+//                
+//            }
+//        }
+//    }
     
 
 }

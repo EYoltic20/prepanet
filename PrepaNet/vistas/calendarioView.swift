@@ -17,8 +17,8 @@ struct calendarioView: View {
     @State var alerta = false
     @State var fecha : YearMonthDay  = YearMonthDay.current
     @State var notaAdd = false
-    @ObservedObject var infoview  = informationView(cursos: [ClasesModelo(nombre: "Liderazgo Positivo y Transformación Personal ", calificacion: 100, descripcion: "Transformar su vida y aumentar tu riqueza y capital psicológico, con el fin de tener mayor éxito estudiantil, lograr una mayor influencia en su contexto y cambiar el entorno. ", dar_de_baja: false, estado: true,periodoInicio:"10 11 2022",periodoFinal: "20 11 2022")
-                                                            ])
+    @ObservedObject var infoview  = informationView()
+                                                            
     @ObservedObject var controller: CalendarController = CalendarController()
     var body: some View {
         NavigationView{
@@ -122,8 +122,8 @@ struct calendarioView: View {
             
         }
         .onAppear{
-            infoview.recover(cursos: [ClasesModelo(nombre: "Liderazgo Positivo y Transformación Personal ", calificacion: 100, descripcion: "Transformar su vida y aumentar tu riqueza y capital psicológico, con el fin de tener mayor éxito estudiantil, lograr una mayor influencia en su contexto y cambiar el entorno. ", dar_de_baja: false, estado: true,periodoInicio:"10 11 2022",periodoFinal: "20 11 2022")])
-            infoview.get_values()
+//            infoview.recover(cursos: [ClasesModelo(nombre: "Liderazgo Positivo y Transformación Personal ", calificacion: 100, descripcion: "Transformar su vida y aumentar tu riqueza y capital psicológico, con el fin de tener mayor éxito estudiantil, lograr una mayor influencia en su contexto y cambiar el entorno. ", dar_de_baja: false, estado: true,periodoInicio:"10 11 2022",periodoFinal: "20 11 2022")])
+//            infoview.get_values()
             
             print(infoview.informations)
         }
