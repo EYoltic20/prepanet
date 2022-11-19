@@ -9,8 +9,9 @@ import SwiftUI
 
 struct dashBoardView: View {
     @ObservedObject var cursos  =  ClasesModelo()
-    
     @State var cursosInactivos = [ModelClases]()
+    @State var cursosActivos = [ModelClases]()
+    
     let rowsGrid = [GridItem(.flexible(minimum:3))]
     @State var isDetalleViewActive = false
     @State var otroCursos = false
@@ -86,6 +87,7 @@ struct dashBoardView: View {
                                 }
                                 
                                 
+                                
                             }
                             
                         }.frame(height:160)
@@ -103,7 +105,7 @@ struct dashBoardView: View {
                             
                             LazyHGrid(rows:rowsGrid,spacing: 20){
                                 Spacer()
-                                ForEach(cursosInactivos.indices , id : \.self){ curso in
+                                ForEach(cursosInactivos.indices, id : \.self){ curso in
                                     NavigationLink(destination:cursoDetalleView(curso: cursosInactivos[curso])){
                                         
                                         cursoView(curso: cursosInactivos[curso].nombre,colo:Color.blue)
@@ -208,11 +210,21 @@ struct dashBoardView: View {
                     .ignoresSafeArea()
                 
             }
-            .onAppear{
-                cursos.loadData(Url: "https://prepnet.uc.r.appspot.com/api/alumnos/historial-cursos/")
-//                print(cursos.result)
-                cursosInactivos = getCursosInactivos()
+            .onAppear(){
+                DispatchQueue.main.async {
+                    
+                    Task{
+                        let (cursA,curI) = await cursos.loadData(url: "https://prepnet.uc.r.appspot.com/api/alumnos/historial-cursos/")
+                        cursosInactivos=curI
+                        cursosActivos = cursA
+                        //                sleep(2)
+                        //                print(cursos.result)
+                        //                print(cursos.cursosInactivos)
+                        //                cursosInactivos = cursos.cursosInactivos
+                    }
+                }
             }
+            
         }
         
         .navigationBarTitle("")
@@ -224,23 +236,25 @@ struct dashBoardView: View {
     
     //    MARK: -Obtener el curso activo
     func getCursoNombre()->String{
-        for curso in cursos.result{
+        for curso in cursosActivos{
             if(curso.status == "Cursando"){
                 return curso.nombre
             }
         }
         return "error"
     }
+    
     func getCurso()->ModelClases?{
-        for curso in cursos.result{
+        for curso in cursosActivos{
             if(curso.status == "Cursando"){
                 return curso
             }
         }
         return nil
     }
+    
     //    MARK: -Obtener curso inactivo
-    func getCursosInactivos() ->[ModelClases]{
+    func getCursosInactivos()  ->[ModelClases]{
         var t=[ModelClases]()
         for curso in cursos.result {
             if curso.status == "Sin Cursar"{

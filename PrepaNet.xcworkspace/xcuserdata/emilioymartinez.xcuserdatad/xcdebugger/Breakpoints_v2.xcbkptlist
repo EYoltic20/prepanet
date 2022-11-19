@@ -7,33 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BBF6F71D-1862-4E4C-B95F-5DA52563EC0D"
+            uuid = "5F4EF7DA-D433-4FF8-9E2A-6D5DAB6968FD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PrepaNet/vistas/dashBoardView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "getCursosInactivos()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "54AF508E-77CC-48CE-9D7C-AEB7DF962C9D"
+            uuid = "35D0358A-6BB8-4787-B695-A5BB4AA1F690"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PrepaNet/Modelo/ClasesModelo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "ClasesModelo"
-            landmarkType = "3">
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "loaddata(Url:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct TabViewCo: View {
-    @State var seleccion : String = "Home"
+    @State var seleccion : String = "Calendar"
     var body: some View {
         GeometryReader{geoRoot in
             NavigationView{
 
-                    TabView{
+                    TabView(selection: $seleccion){
                         
                         //            MARK: -Dash board
                         dashBoardView()
