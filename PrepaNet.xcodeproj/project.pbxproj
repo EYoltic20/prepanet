@@ -20,6 +20,8 @@
 		2EACF0DD291307E300EE14BD /* InformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EACF0DC291307E200EE14BD /* InformationViewModel.swift */; };
 		2EC21299291C4C6100B20771 /* animacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC21298291C4C6100B20771 /* animacion.swift */; };
 		2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */; };
+		2EDC8200292B19B000833F21 /* perfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC81FF292B19B000833F21 /* perfilView.swift */; };
+		2EDC8202292B19CA00833F21 /* AlumnoModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC8201292B19CA00833F21 /* AlumnoModelo.swift */; };
 		2EEBBAF528F8D22900D9D701 /* ClasesModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */; };
 		2EEEF280292499680083AA38 /* SplashScreenVire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEEF27F292499680083AA38 /* SplashScreenVire.swift */; };
 		2EEEF2822925BA280083AA38 /* ConexionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEEF2812925BA280083AA38 /* ConexionViewModel.swift */; };
@@ -42,6 +44,8 @@
 		2EACF0DC291307E200EE14BD /* InformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModel.swift; sourceTree = "<group>"; };
 		2EC21298291C4C6100B20771 /* animacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animacion.swift; sourceTree = "<group>"; };
 		2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashBoardView.swift; sourceTree = "<group>"; };
+		2EDC81FF292B19B000833F21 /* perfilView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilView.swift; sourceTree = "<group>"; };
+		2EDC8201292B19CA00833F21 /* AlumnoModelo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumnoModelo.swift; sourceTree = "<group>"; };
 		2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasesModelo.swift; sourceTree = "<group>"; };
 		2EEEF27F292499680083AA38 /* SplashScreenVire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVire.swift; sourceTree = "<group>"; };
 		2EEEF2812925BA280083AA38 /* ConexionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexionViewModel.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				2E3EECF728E7879200A0E298 /* ContentView.swift */,
 				2E76CE4928FE1285001D7618 /* cursoDetalleView.swift */,
 				2ED2BE4428F0C5530035E9F1 /* dashBoardView.swift */,
+				2EDC81FF292B19B000833F21 /* perfilView.swift */,
 				2EAC6F2428FA2E4200290DC9 /* TabViewCo.swift */,
 				2E97B09629031ADF00390FC9 /* calendarioView.swift */,
 				2EF32AEB28F67A200044C8DC /* cursoView.swift */,
@@ -132,6 +137,7 @@
 		2EEBBAF328F8D1E200D9D701 /* Modelo */ = {
 			isa = PBXGroup;
 			children = (
+				2EDC8201292B19CA00833F21 /* AlumnoModelo.swift */,
 				2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */,
 			);
 			path = Modelo;
@@ -268,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDC8202292B19CA00833F21 /* AlumnoModelo.swift in Sources */,
 				2ED2BE4528F0C5530035E9F1 /* dashBoardView.swift in Sources */,
 				2EC21299291C4C6100B20771 /* animacion.swift in Sources */,
 				2EEEF280292499680083AA38 /* SplashScreenVire.swift in Sources */,
@@ -276,6 +283,7 @@
 				2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */,
 				2E76CE4A28FE1285001D7618 /* cursoDetalleView.swift in Sources */,
 				2E58F7C228F9FB2700874F4D /* AutentificacionView.swift in Sources */,
+				2EDC8200292B19B000833F21 /* perfilView.swift in Sources */,
 				2EEEF2822925BA280083AA38 /* ConexionViewModel.swift in Sources */,
 				2E2547932919998C00EA725A /* InscripcionesView.swift in Sources */,
 				2EAC6F2528FA2E4200290DC9 /* TabViewCo.swift in Sources */,

@@ -16,14 +16,17 @@ struct dashBoardView: View {
     @State var isDetalleViewActive = false
     @State var otroCursos = false
     @State var cursoActual  = ""
+    @State var isPerfilActive = false
     var body: some View {
         NavigationView{
             ScrollView{
                 VStack{
                     //                MARK: -curso activo
                     VStack(alignment:.center){
+//                        MARK: - Navegacion dentro
                         ZStack{
                             NavigationLink(destination:cursoDetalleView(curso: getCurso() ?? ModelClases(id: 0, nombre: "xx", orden: 1, description: "aa", duracion: 1, approved: true, status: "")),isActive: $isDetalleViewActive,label: {EmptyView()})
+                            NavigationLink(destination:perfilView(),isActive:$isPerfilActive,label:{EmptyView()})
                         }
                         Text("Curso Actual")
                             .foregroundColor(.black)
@@ -181,7 +184,7 @@ struct dashBoardView: View {
                         //                MARK: -Perfil
                         ToolbarItem(placement: .navigationBarLeading){
                             Button{
-                                print("Hola")
+                                isPerfilActive.toggle()
                             }label: {
                                 Image(systemName: "person.crop.circle")
                                     .resizable()
