@@ -10,9 +10,9 @@ import SwiftUI
 @main
 struct PrepaNetApp: App {
     var shared = ClasesModelo()
-    var body: some Scene {
+    var body: some Scene { 
         WindowGroup {
-            TabViewCo()
+            SplashScreenVire()
                 .environmentObject(shared)
         }
     }
