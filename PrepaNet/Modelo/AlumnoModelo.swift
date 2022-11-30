@@ -29,7 +29,7 @@ class AlumnoGet{
         return cargando_los_datos
     }
     func obteniendoResultados() async ->AlumnoModelo?{
-        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2ODcxNjkxNH0.U7GiSmP6TKwoWfRU5SvJaPDcsDOvjl3yluZfOkdVOXs"]
+        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2OTc2ODE3MH0.NtAaoDbECRZ8QB3wcjrQc28tQRj13NXOnnY9EXc1Mrg"]
         
         let url = URL(string: "https://prepnet.uc.r.appspot.com/api/alumnos/profile")!
         var request = URLRequest(url: url)

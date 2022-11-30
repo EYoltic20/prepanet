@@ -10,18 +10,31 @@ import SwiftUI
 struct cursoView: View {
     var curso :String
     var colo : Color
-    var calificacion = 50
+    var  calificacion = 50
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(colo)
+        
+        Image(regresar_nombre(nombre: curso))
+            .resizable()
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+        
+            .aspectRatio(contentMode: .fit)
+
+
 //            .blur(radius: 3)
             .overlay{
                 VStack{
-                    Text("\(curso)")
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
-                        .font(.title3)
-                }
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(colo)
+                        .frame(width:150,height:40)
+                        .overlay{
+                            Text(curso)
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                                .font(.body)
+                        }
+                }.offset(y:40)
             }
     }
 }

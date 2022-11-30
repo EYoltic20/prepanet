@@ -12,7 +12,7 @@ struct PrepaNetApp: App {
     var shared = ClasesModelo()
     var body: some Scene { 
         WindowGroup {
-            SplashScreenVire()
+            ContentView()
                 .environmentObject(shared)
         }
     }

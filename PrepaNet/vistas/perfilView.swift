@@ -19,9 +19,15 @@ struct perfilView: View {
         NavigationView{
             VStack(alignment:.center, spacing: 20){
                 VStack{
-                    Image(systemName: "person.crop.circle.fill")
+                    Circle()
+                        .fill(.black)
+                        .frame(width:170,height: 170,alignment: .center)
+                        
+                        .overlay{
+                    Image(systemName: "person.crop.circle")
                         .resizable()
                         .scaledToFit()
+                        .foregroundColor(.white)
                         .frame(width:150,height: 150,alignment: .center)
                         .padding()
                         .padding(.top,1)
@@ -32,59 +38,72 @@ struct perfilView: View {
                                 .opacity(0.9)
                                 .frame(width:50,height:40)
                         }
+                        }
+                }
+                .offset(y:-30)
+                
+                VStack{
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.white)
+                        
+                        .shadow(color: .black.opacity(0.4), radius: 10, x: 15, y: 20)
+                        
+                        .frame(width:200,height:300)
+                        .overlay{
+                            VStack(alignment:.center,spacing:30){
+                                
+                                Text("\(alumno.nombre)")
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                                Text("\(alumno.apellido)")
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                                Text("\(alumno.matricula)")
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                                Text("\(alumno.campus)")
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                                
+                            }
+                            
+                            Spacer()
+                        }
+                        .padding(.bottom,100)
+                        .onAppear{
+                            Task{
+                                let alumnotemporal = await alumnoModelo.loadData()
+                                alumno = alumnotemporal ?? AlumnoModelo(nombre: "", apellido: "", matricula: "", campus: "")
+                                
+                            }
+                        }
+                    
                 }
                 
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10).opacity(0.6)
-                        .shadow(color: .black.opacity(0.4), radius: 10, x: 15, y: 20)
-                    VStack(alignment:.center,spacing:30){
-                        
-                        Text("\(alumno.nombre)")
-                            .foregroundColor(.white)
-                            .font(.title)
-                        Text("\(alumno.apellido)")
-                            .foregroundColor(.white)
-                            .font(.title)
-                        Text("\(alumno.matricula)")
-                            .foregroundColor(.white)
-                            .font(.title)
-                        Text("\(alumno.campus)")
-                            .foregroundColor(.white)
-                            .font(.title)
-                        
-                    }
-                }.frame(width:200,height:300)
-                Spacer()
+                
+                
             }
-            .padding(.bottom,100)
-            .onAppear{
-                Task{
-                    let alumnotemporal = await alumnoModelo.loadData()
-                    alumno = alumnotemporal ?? AlumnoModelo(nombre: "", apellido: "", matricula: "", campus: "")
-                    
-                }
-            }
+//            .offset(y:-20)
             .background{
-                Image("backgrounf_fondo")
+                Image("imagenUno")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-                    .offset(x: -50)
-                    
-                    
+                    .frame(width:350,height: 350)
+                    .padding(.top,400)
+                
             }
-            
             
         }
         
+        
+        
     }
     
+    struct perfilView_Previews: PreviewProvider {
+        static var previews: some View {
+            perfilView()
+        }
+    }
     
 }
-
-struct perfilView_Previews: PreviewProvider {
-    static var previews: some View {
-        perfilView()
-    }
-}
-

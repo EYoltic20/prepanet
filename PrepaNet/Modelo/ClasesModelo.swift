@@ -37,14 +37,15 @@ final class ClasesModelo: ObservableObject{
     @Published var result = [ModelClases]()
     @Published var cursosInactivos=[ModelClases]()
     
-    func loadData(url:String)async ->([ModelClases],[ModelClases]) {
-        let (modelos,modelosNo) = await loaddata(Url: url)!
-        return (modelos,modelosNo)
+    func loadData(url:String)async ->([ModelClases],[ModelClases],[ModelClases])? {
+        let (modelos,modelosNo,modeloPasado) = await loaddata(Url: url) ?? ([ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")],[ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")],[ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")])
+        return (modelos,modelosNo,modeloPasado)
     }
     
-    func loaddata(Url:String)async -> ([ModelClases],[ModelClases])?{
+    func loaddata(Url:String)async -> ([ModelClases],[ModelClases],[ModelClases])?{
         
-        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2ODcxNjkxNH0.U7GiSmP6TKwoWfRU5SvJaPDcsDOvjl3yluZfOkdVOXs"]
+        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2OTc2ODE3MH0.NtAaoDbECRZ8QB3wcjrQc28tQRj13NXOnnY9EXc1Mrg"]
+        
         
         let url = URL(string: Url)!
         var request = URLRequest(url: url)
@@ -58,6 +59,7 @@ final class ClasesModelo: ObservableObject{
 //            let session = URLSession(configuration: .default)
             var temp = [ModelClases]()
             var temp2 = [ModelClases]()
+            var temp3 = [ModelClases]()
             let (data,_) = try await URLSession.shared.data(for: request)
             
             let respuestas = try  JSONDecoder().decode([curso].self, from: data )
@@ -72,17 +74,19 @@ final class ClasesModelo: ObservableObject{
                 let status = respuesta.estatus
                 let duracion = respuesta.duracion
                 print(status)
-                if status != "Cursando"{
+                if status == "Sin Cursar"{
   
                     
                     temp2.append(ModelClases(id: id, nombre: nombre, orden: orden, description: description,duracion: duracion, approved: approved, status: status))
-                }else{
+                }else if status == "Cursando"{
                     temp.append(ModelClases(id: id, nombre: nombre, orden: orden, description: description,duracion: duracion, approved: approved, status: status))
+                }else{
+                    temp3.append(ModelClases(id: id, nombre: nombre, orden: orden, description: description,duracion: duracion, approved: approved, status: status))
                 }
                     
             }
             
-            return (temp,temp2) as! ([ModelClases], [ModelClases])
+            return (temp,temp2,temp3) as! ([ModelClases], [ModelClases],[ModelClases])
         }catch{
             print("error")
             return nil

@@ -26,6 +26,9 @@
 		2EEEF280292499680083AA38 /* SplashScreenVire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEEF27F292499680083AA38 /* SplashScreenVire.swift */; };
 		2EEEF2822925BA280083AA38 /* ConexionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEEF2812925BA280083AA38 /* ConexionViewModel.swift */; };
 		2EF32AEC28F67A200044C8DC /* cursoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF32AEB28F67A200044C8DC /* cursoView.swift */; };
+		2EF86AA42934922D003DBABE /* lateralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF86AA32934922D003DBABE /* lateralView.swift */; };
+		2EF86AA62936B590003DBABE /* InscriptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF86AA52936B590003DBABE /* InscriptionsModel.swift */; };
+		2EF86AA82936BFBB003DBABE /* regresarnombre_foto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF86AA72936BFBB003DBABE /* regresarnombre_foto.swift */; };
 		308C2F0EAA48FD09F45C12E3 /* Pods_PrepaNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D701436343A669F8F3DF91 /* Pods_PrepaNet.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,9 @@
 		2EEEF27F292499680083AA38 /* SplashScreenVire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVire.swift; sourceTree = "<group>"; };
 		2EEEF2812925BA280083AA38 /* ConexionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexionViewModel.swift; sourceTree = "<group>"; };
 		2EF32AEB28F67A200044C8DC /* cursoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoView.swift; sourceTree = "<group>"; };
+		2EF86AA32934922D003DBABE /* lateralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lateralView.swift; sourceTree = "<group>"; };
+		2EF86AA52936B590003DBABE /* InscriptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionsModel.swift; sourceTree = "<group>"; };
+		2EF86AA72936BFBB003DBABE /* regresarnombre_foto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regresarnombre_foto.swift; sourceTree = "<group>"; };
 		B182F9334DE0526328601879 /* Pods-PrepaNet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepaNet.release.xcconfig"; path = "Target Support Files/Pods-PrepaNet/Pods-PrepaNet.release.xcconfig"; sourceTree = "<group>"; };
 		D3D701436343A669F8F3DF91 /* Pods_PrepaNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrepaNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE0B323EE6081C5D055BA52 /* Pods-PrepaNet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepaNet.debug.xcconfig"; path = "Target Support Files/Pods-PrepaNet/Pods-PrepaNet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 			children = (
 				2EACF0DC291307E200EE14BD /* InformationViewModel.swift */,
 				2EEEF2812925BA280083AA38 /* ConexionViewModel.swift */,
+				2EF86AA72936BFBB003DBABE /* regresarnombre_foto.swift */,
 			);
 			path = VistaModelo;
 			sourceTree = "<group>";
@@ -130,6 +137,7 @@
 				2E2547922919998C00EA725A /* InscripcionesView.swift */,
 				2EEEF27F292499680083AA38 /* SplashScreenVire.swift */,
 				2EC21298291C4C6100B20771 /* animacion.swift */,
+				2EF86AA32934922D003DBABE /* lateralView.swift */,
 			);
 			path = vistas;
 			sourceTree = "<group>";
@@ -139,6 +147,7 @@
 			children = (
 				2EDC8201292B19CA00833F21 /* AlumnoModelo.swift */,
 				2EEBBAF428F8D22900D9D701 /* ClasesModelo.swift */,
+				2EF86AA52936B590003DBABE /* InscriptionsModel.swift */,
 			);
 			path = Modelo;
 			sourceTree = "<group>";
@@ -288,7 +297,10 @@
 				2E2547932919998C00EA725A /* InscripcionesView.swift in Sources */,
 				2EAC6F2528FA2E4200290DC9 /* TabViewCo.swift in Sources */,
 				2E3EECF828E7879200A0E298 /* ContentView.swift in Sources */,
+				2EF86AA62936B590003DBABE /* InscriptionsModel.swift in Sources */,
+				2EF86AA42934922D003DBABE /* lateralView.swift in Sources */,
 				2E3EECF628E7879200A0E298 /* PrepaNetApp.swift in Sources */,
+				2EF86AA82936BFBB003DBABE /* regresarnombre_foto.swift in Sources */,
 				2E97B095290318A100390FC9 /* AlertasView.swift in Sources */,
 				2EACF0DD291307E300EE14BD /* InformationViewModel.swift in Sources */,
 			);
