@@ -24,12 +24,12 @@ struct campusOption:Decodable{
     let name : String
 }
 class AlumnoGet{
-    func loadData()async -> AlumnoModelo?{
-        let cargando_los_datos = await obteniendoResultados()
+    func loadData(token:String)async -> AlumnoModelo?{
+        let cargando_los_datos = await obteniendoResultados(token:token)
         return cargando_los_datos
     }
-    func obteniendoResultados() async ->AlumnoModelo?{
-        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2OTc2ODE3MH0.NtAaoDbECRZ8QB3wcjrQc28tQRj13NXOnnY9EXc1Mrg"]
+    func obteniendoResultados(token:String) async ->AlumnoModelo?{
+        let headers = ["x-auth-token":token]
         
         let url = URL(string: "https://prepnet.uc.r.appspot.com/api/alumnos/profile")!
         var request = URLRequest(url: url)

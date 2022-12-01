@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct PrepaNetApp: App {
-    var shared = ClasesModelo()
-    var body: some Scene { 
+    
+    var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(shared)
+                .environmentObject(Usuario_Modelo())
         }
     }
 }

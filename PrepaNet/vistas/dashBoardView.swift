@@ -12,7 +12,7 @@ struct dashBoardView: View {
     @State var cursosInactivos = [ModelClases]()
     @State var cursosPasados = [ModelClases]()
     @State var cursosActivos = [ModelClases]()
-    
+    @EnvironmentObject var entrar : Usuario_Modelo
     let rowsGrid = [GridItem(.flexible(minimum:3))]
     @State var isDetalleViewActive = false
     @State var otroCursos = false
@@ -81,7 +81,7 @@ struct dashBoardView: View {
                             //            MARK: -Cursos Faltantes
                             ScrollView(.horizontal){
                                 
-                                LazyHGrid(rows:rowsGrid,spacing: 20){
+                                HStack(spacing:20){
                                     Spacer()
                                     ForEach(cursosInactivos.indices , id : \.self){ curso in
                                         NavigationLink(destination:cursoDetalleView(curso: cursosInactivos[curso])){
@@ -95,12 +95,12 @@ struct dashBoardView: View {
                                         }
                                         
                                         
-                                    }
+//                                    }
                                     
                                     
                                     
                                 }
-                                
+                                }
                             }.frame(height:160)
                             
                         }.padding()
@@ -126,20 +126,20 @@ struct dashBoardView: View {
                                             //                                Capsula de calificacion
                                                 .overlay{
                                                     Capsule()
-                                                        .fill(cursosInactivos[curso].id < 70 ? .red : .green)
+                                                        .fill(cursosPasados[curso].approved ? .green : .red)
                                                     
                                                         .opacity(0.6)
                                                         .overlay{
-                                                            Text("\(cursosInactivos[curso].id)%")
+                                                            Text("\(cursosPasados[curso].status)")
                                                                 .font(.caption)
                                                                 .fontWeight(.bold)
                                                                 .foregroundColor(.white)
                                                             //                                .for
-                                                            //                            poner cambio de color
+                                                            //      x                      poner cambio de color
                                                         }
-                                                        .offset(x:45,y:-57)
+                                                        .offset(x:45,y:-40)
                                                         .shadow(color:.black.opacity(0.7), radius: 10, x: 5, y: 5)
-                                                        .frame(width:50,height:30)
+                                                        .frame(width:70,height:30)
                                                 }
                                         }
                                         
@@ -156,12 +156,9 @@ struct dashBoardView: View {
                         Spacer()
                         //            MARK: -informacionde regristo
                         VStack(alignment:.center){
-                            Text("Inscripciones Dispoibles")
+                            Text("Inscripciones")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            Text(" 20 de marzo del 2022")
-                                .font(.title3)
-                                .fontWeight(.semibold)
                             Circle()
                                 .fill(.gray)
                                 .opacity(0.2)
@@ -190,19 +187,8 @@ struct dashBoardView: View {
                                     .frame(width:130,height: 30)
                             }
                             
-                            //                MARK: -Perfil
-                            ToolbarItem(placement: .navigationBarLeading){
-                                Button{
-                                    abrirMeniu.toggle()
-                                }label: {
-                                    Image(systemName: "text.justify")
-                                        .resizable()
-                                        .foregroundColor(.black)
-                                        .scaledToFit()
-                                        .frame(width:30,height: 30)
-                                }
-                            }
-                            //              MARK: -Menu
+
+                            //              MARK: -Perfil
                             ToolbarItem(placement:.navigationBarTrailing){
                                 Button{
                                     isPerfilActive.toggle()
@@ -216,9 +202,6 @@ struct dashBoardView: View {
                                 
                             }
                         }
-                    if abrirMeniu{
-                        sideMenu(width: 270, isOpen: self.abrirMeniu, menuClose: self.openMenu)
-                    }
                     
                 }
                 .background{
@@ -228,10 +211,8 @@ struct dashBoardView: View {
                     
                 }
                 .onAppear(){
-                    DispatchQueue.main.async {
-                        
                         Task{
-                            let (cursA,curI,cursD) = await cursos.loadData(url: "https://prepnet.uc.r.appspot.com/api/alumnos/historial-cursos/") ?? ([],[],[])
+                            let (cursA,curI,cursD) = await cursos.loadData(url: "https://prepnet.uc.r.appspot.com/api/alumnos/historial-cursos/", token: entrar.x_token) ?? ([],[],[])
                             cursosInactivos=curI
                             cursosActivos = cursA
                             cursosPasados = cursD
@@ -240,7 +221,7 @@ struct dashBoardView: View {
                             //                print(cursos.cursosInactivos)
                             //                cursosInactivos = cursos.cursosInactivos
                         }
-                    }
+                
                 }
             }
         }

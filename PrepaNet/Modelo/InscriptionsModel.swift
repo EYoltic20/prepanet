@@ -27,12 +27,12 @@ struct modeloinscripcion{
 class Inscribir{
     let url = "https://prepnet.uc.r.appspot.com/api/alumnos/curso-inscribir/"
     let urlIns = "https://prepnet.uc.r.appspot.com/api/alumnos/inscribir/"
-    func gettingData()async -> modeloinscripcion?{
-        let modelo = await load_data()
+    func gettingData(token:String)async -> modeloinscripcion?{
+        let modelo = await load_data(tokenn: token)
         return modelo
     }
-    func load_data()async -> modeloinscripcion?{
-        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2OTc2ODE3MH0.NtAaoDbECRZ8QB3wcjrQc28tQRj13NXOnnY9EXc1Mrg"]
+    func load_data(tokenn:String)async -> modeloinscripcion?{
+        let headers = ["x-auth-token":tokenn]
         
         let Url = URL(string: url)!
         var request = URLRequest(url: Url)
@@ -57,8 +57,8 @@ class Inscribir{
         }
         
     }
-    func inscribir(id:Int)async->Int{
-        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2OTc2ODE3MH0.NtAaoDbECRZ8QB3wcjrQc28tQRj13NXOnnY9EXc1Mrg"]
+    func inscribir(id:Int,token:String)async->Int{
+        let headers = ["x-auth-token":token]
         
         let completeUrl = "\(urlIns)\(String(id))/"
         let Url = URL(string: completeUrl)!

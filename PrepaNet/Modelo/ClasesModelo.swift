@@ -33,18 +33,17 @@ struct ModelClases{
     let status : String
 }
 
-final class ClasesModelo: ObservableObject{
+ class ClasesModelo: ObservableObject{
     @Published var result = [ModelClases]()
     @Published var cursosInactivos=[ModelClases]()
-    
-    func loadData(url:String)async ->([ModelClases],[ModelClases],[ModelClases])? {
-        let (modelos,modelosNo,modeloPasado) = await loaddata(Url: url) ?? ([ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")],[ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")],[ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")])
+     func loadData(url:String,token:String)async ->([ModelClases],[ModelClases],[ModelClases])? {
+         let (modelos,modelosNo,modeloPasado) = await loaddata(Url: url,token: token) ?? ([ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")],[ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")],[ModelClases(id: 0, nombre: "''", orden: 0, description: "", duracion: 0, approved: true, status: "")])
         return (modelos,modelosNo,modeloPasado)
     }
     
-    func loaddata(Url:String)async -> ([ModelClases],[ModelClases],[ModelClases])?{
+     func loaddata(Url:String,token:String)async -> ([ModelClases],[ModelClases],[ModelClases])?{
         
-        let headers = ["x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImlhdCI6MTY2OTc2ODE3MH0.NtAaoDbECRZ8QB3wcjrQc28tQRj13NXOnnY9EXc1Mrg"]
+        let headers = ["x-auth-token":token]
         
         
         let url = URL(string: Url)!

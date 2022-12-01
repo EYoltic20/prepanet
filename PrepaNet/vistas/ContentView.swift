@@ -15,12 +15,13 @@ struct ContentView: View {
     @State  var isActiveNormal = false
     @State var estado = 0
     @State var alerta = false
+    @EnvironmentObject var entrar : Usuario_Modelo
     
     var body: some View {
         NavigationView{
             
             VStack(alignment:.center){
-                NavigationLink(destination:AutentificacionView(),isActive: $isActiveNormal){
+                NavigationLink(destination:Comprobar(),isActive: $isActiveNormal){
                     EmptyView()
                 }
                 .hidden()
@@ -39,6 +40,22 @@ struct ContentView: View {
                         .overlay(Divider().foregroundColor(.black),alignment: .bottom)
                     Text("Contraseña")
                         .font(.title3)
+//                     MARK: -SECURE
+                    if isHidden{
+                    HStack{
+                        SecureField("Password",text:$password)
+                            .textFieldStyle(.plain)
+                        Spacer()
+                        
+                        Button{
+                            isHidden.toggle()
+                        }label: {
+                            Image(systemName: isHidden ? "eye.slash":"eye")
+                                .foregroundColor(.black)
+                        }
+                    }       .overlay(Divider().foregroundColor(.black),alignment: .bottom)
+                    }
+                    else{
                     HStack{
                         TextField("Password",text:$password)
                             .textFieldStyle(.plain)
@@ -51,6 +68,8 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                         }
                     }       .overlay(Divider().foregroundColor(.black),alignment: .bottom)
+                    }
+        
                 }
                 .frame(width:300,height: 100)
                 .padding()
@@ -108,20 +127,17 @@ struct ContentView: View {
             
             
             AF.request("https://prepnet.uc.r.appspot.com/api/auth/generate-token",method:.post,parameters:params,encoding:URLEncoding.httpBody).responseJSON{response in
-                switch response.result{
-                
-                case .success(let value):
-                    print(value)
+                do {
+                    let respuesta = try JSONDecoder().decode(respuesta.self, from: response.data! )
+                    print(respuesta)
                     isActiveNormal.toggle()
-                    return
-                case .failure(let error):
-                    print(error)
+                    entrar.x_token = respuesta.token
+                    entrar.isLogged = true
+                }catch{
+                    entrar.isLogged = false
                     alerta.toggle()
                     return
-                    
-                    
-                
-            }
+                }
             
         }
     }

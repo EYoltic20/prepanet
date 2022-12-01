@@ -9,6 +9,10 @@ import SwiftUI
 
 struct cursoDetalleView: View {
     var curso : ModelClases
+    @EnvironmentObject var entrar : Usuario_Modelo
+    @State var isBaja  = false
+    @State var isSure = false
+    @State var areYouSure = false
     var body: some View {
         ScrollView{
             VStack(alignment:.center){
@@ -51,7 +55,13 @@ struct cursoDetalleView: View {
                                
                     if(curso.status == "Cursando"){
                                             Button{
-//                                                Se hace el post aqui
+                                                areYouSure.toggle()
+                                                if isSure{
+                                                Task{
+                                                    let res = await entrar.dar_de_baja(token: entrar.x_token)
+                                                    isBaja = res
+                                                }
+                                                }
                                             }label: {
                                                 Rectangle()
                                                     .fill(.red)
@@ -73,7 +83,20 @@ struct cursoDetalleView: View {
                     .padding()
                 
             }
+            .alert(isPresented: $isBaja){
+                Alert(title: Text("Baja Definitiva"), message: Text("La baja se realizado con exito"), dismissButton:.default(Text("Ok")))
+ 
         }
+            .alert(isPresented: $areYouSure) { () -> Alert in
+                        let primaryButton = Alert.Button.default(Text("Acepto")) {
+                            isSure = true
+                        }
+                        let secondaryButton = Alert.Button.cancel(Text("Cancelar")) {
+                            isSure = false
+                        }
+                        return Alert(title: Text("Cuidado"), message: Text("Esta accion no se puede des hacer"), primaryButton: primaryButton, secondaryButton: secondaryButton)
+                    }
+    }
     }
     @ViewBuilder
     func Construyendo_circulo(incremento:Int)->some View{
@@ -98,10 +121,8 @@ struct cursoDetalleView: View {
             
         }
     }
-    func dar_de_baja(){
-        
-    }
-}
+
+
 struct TextoJustificado: UIViewRepresentable{
     var texto:String
     func makeUIView(context: Context) -> UITextView {
@@ -136,3 +157,4 @@ struct figura:View{
 //        cursoDetalleView()
 //    }
 //}
+}

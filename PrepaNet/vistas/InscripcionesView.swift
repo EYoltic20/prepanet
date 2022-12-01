@@ -11,6 +11,7 @@ struct InscripcionesView: View {
     var modelo  = Inscribir()
     @State var codigo = 0
     @State var curso_A_Inscribir = modeloinscripcion(description: "", duracion: 0, id: 0, nombre: "", orden: 0)
+    @EnvironmentObject var entrar : Usuario_Modelo
     @State var alerta = false
     @State var alerta_error = false
     @State var anima = false
@@ -71,7 +72,7 @@ struct InscripcionesView: View {
                     
                     Button{
                         Task{
-                            let res = await modelo.inscribir(id:curso_A_Inscribir.id)
+                            let res = await modelo.inscribir(id:curso_A_Inscribir.id,token: entrar.x_token)
                             codigo = res
                             if(codigo == 400){
                                 alerta=true
@@ -107,7 +108,7 @@ struct InscripcionesView: View {
         
         .onAppear{
             Task{
-                let res = await modelo.gettingData()
+                let res = await modelo.gettingData(token: entrar.x_token)
                 curso_A_Inscribir = res ?? modeloinscripcion(description: "", duracion: 0, id: 0, nombre: "", orden: 0)
             }
         }
