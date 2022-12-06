@@ -13,6 +13,7 @@ struct cursoDetalleView: View {
     @State var isBaja  = false
     @State var isSure = false
     @State var areYouSure = false
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ScrollView{
             VStack(alignment:.center){
@@ -55,13 +56,16 @@ struct cursoDetalleView: View {
                                
                     if(curso.status == "Cursando"){
                                             Button{
-                                                areYouSure.toggle()
-                                                if isSure{
-                                                Task{
-                                                    let res = await entrar.dar_de_baja(token: entrar.x_token)
-                                                    isBaja = res
+                                                if(!areYouSure){
+                                                    areYouSure = true
                                                 }
-                                                }
+//                                                if isSure{
+//                                                Task{
+//                                                    let res = await entrar.dar_de_baja(token: entrar.x_token)
+//                                                    isBaja = res
+//                                                    self.presentationMode.wrappedValue.dismiss()
+//                                                }
+//                                                }
                                             }label: {
                                                 Rectangle()
                                                     .fill(.red)
@@ -90,6 +94,11 @@ struct cursoDetalleView: View {
             .alert(isPresented: $areYouSure) { () -> Alert in
                         let primaryButton = Alert.Button.default(Text("Acepto")) {
                             isSure = true
+                            Task{
+                                let res = await entrar.dar_de_baja(token: entrar.x_token)
+                                isBaja = res
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
                         }
                         let secondaryButton = Alert.Button.cancel(Text("Cancelar")) {
                             isSure = false
